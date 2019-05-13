@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Staff from './pages/Staff';
+import Gallery from './pages/Gallery';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
-<<<<<<< HEAD
-import MainNavbar from './MainNavbar'
-import Gallery from './pages/Gallery';
-=======
 import MainNavbar from './MainNavbar';
 // import Calendar from 'react-calendar';
 import Calendar from 'react-calendar/dist/entry.nostyle';
->>>>>>> 5902c1234d72883826132c84399c3e5661fc17c3
 
 export default class App extends Component {
   constructor(props) {
