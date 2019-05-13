@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
   email: String,
-  password: String
+  password: String,
+  contact: Number
 }, {
     timestamps: true
   });
