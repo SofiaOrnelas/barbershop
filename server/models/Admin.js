@@ -20,18 +20,12 @@ const AdminSchema = new mongoose.Schema({
     enum: ['ADMIN', 'OWNER'],
     default: ['ADMIN'],
   },
-  images: {
+  pictureUrl: {
     type: String,
   },
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at'
-  },
-  area: {
-    type: Number,
-  },
-  description: {
-    type: String,
   },
   _owner: { 
   type: Schema.Types.ObjectId, 
