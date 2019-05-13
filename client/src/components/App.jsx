@@ -32,8 +32,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <MainNavbar />
-        <Calendar />
-        <Footer />
+        <Calendar />  
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/staff" component={Staff} />
@@ -42,7 +41,11 @@ export default class App extends Component {
           <Route path="/login" component={Login} />
           <Route render={() => <h2>404</h2>} />
         </Switch>
+        <div>
+          <Footer />
+        </div>
       </div>
+      
     );
   }
 }

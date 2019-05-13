@@ -22,7 +22,7 @@ $primary: #32c3ff;
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 16px "Arimo", sans-serif;
 }
 
 .info {
@@ -52,6 +52,7 @@ body {
     background-color: $primary;
     padding: 20px;
     color: white;
+    font-family: 
 
     a {
       color: white;
@@ -113,4 +114,14 @@ body {
     width: 50px;
     object-fit: cover;
   }
+}
+
+////// CLASSES BARBEARIA
+
+.footer1{
+  width: 100%;
+  height: 10vh;
+  background-color: black;
+  color: white;
+  
 }
