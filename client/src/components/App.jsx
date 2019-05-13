@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
-import List from './pages/List';
+import Staff from './pages/Staff';
+import Gallery from './pages/Gallery';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
@@ -33,7 +34,8 @@ export default class App extends Component {
         {/* <Calendar /> */}
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/list" component={List} />
+          <Route path="/staff" component={Staff} />
+          <Route path="/gallery" component={Gallery} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route render={() => <h2>404</h2>} />
