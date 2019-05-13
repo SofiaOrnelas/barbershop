@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
 import MainNavbar from './MainNavbar';
+import Footer from './pages/Footer';
 // import Calendar from 'react-calendar';
 import Calendar from 'react-calendar/dist/entry.nostyle';
 
@@ -27,6 +28,7 @@ export default class App extends Component {
       <div className="App">
         <MainNavbar />
         <Calendar />
+        <Footer />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/staff" component={Staff} />
