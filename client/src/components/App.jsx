@@ -7,11 +7,15 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
 import MainNavbar from './MainNavbar';
+<<<<<<< HEAD
 import Footer from './pages/Footer';
 // import Calendar from 'react-calendar';
+=======
+import Calendar from './Calendar';
+>>>>>>> 100dd11bc1a467175670b0ff1474b3746177945b
 // import Calendar from 'react-calendar/dist/entry.nostyle';
 // import Timeline from 'react-calendar-timeline'
-import 'react-calendar-timeline/lib/Timeline.css'
+// import 'react-calendar-timeline/lib/Timeline.css'
 // import moment from 'moment'
 
 
@@ -32,7 +36,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <MainNavbar />
-        {/* <Calendar /> */}
+        <Calendar />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/staff" component={Staff} />
