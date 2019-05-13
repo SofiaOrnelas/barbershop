@@ -5,7 +5,9 @@ import List from './pages/List';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
-import MainNavbar from './MainNavbar'
+import MainNavbar from './MainNavbar';
+// import Calendar from 'react-calendar';
+import Calendar from 'react-calendar/dist/entry.nostyle';
 
 export default class App extends Component {
   constructor(props) {
@@ -23,6 +25,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <MainNavbar />
+        <Calendar />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/list" component={List} />
