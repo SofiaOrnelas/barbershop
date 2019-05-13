@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+cdimport React, { Component } from 'react'
 
 export default class Footer extends Component {
   render() {
