@@ -28,18 +28,18 @@ export default class MainNavbar extends Component {
   render() {
     return (
       <Navbar color="danger" dark expand="sm" className="mb-5">
-        <NavbarBrand tag={Link} to="/">MERN Street Art</NavbarBrand>
+        <NavbarBrand tag={Link} to="/">Barbearia Du'Arte</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink tag={NLink} to="/list">List</NavLink>
+              <NavLink tag={NLink} to="/staff">Staff</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={NLink} to="/map">Map</NavLink>
+              <NavLink tag={NLink} to="/gallery">Gallery</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={NLink} to="/new-street-art">New Street Art</NavLink>
+              <NavLink tag={NLink} to="/contacts">Contacts</NavLink>
             </NavItem>
             {!api.isLoggedIn() && <NavItem>
               <NavLink tag={NLink} to="/signup">Signup</NavLink>
