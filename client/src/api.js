@@ -63,15 +63,15 @@ export default {
   },
 
   // This is an example on how to use this method in a different file
-  // api.getStreetArts().then(streetArts => { /* ... */ })
-  getStreetArts() {
+  // api.getCalendars().then(Calendars => { /* ... */ })
+  getCalendars() {
     return service
       .get('/street-arts')
       .then(res => res.data)
       .catch(errHandler)
   },
 
-  addCountry(body) {
+  addAdmin(body) {
     return service
       .post('/countries', body)
       .then(res => res.data)
