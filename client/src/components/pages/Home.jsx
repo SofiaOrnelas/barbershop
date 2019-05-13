@@ -12,6 +12,8 @@ export default class Home extends Component {
         <h2>Welcome to Barbearia Du'Arte!</h2>
         <p>Have fun <span role="img" aria-label="smile">😀</span></p>
       </div>
+
+
     );
   }
 }
