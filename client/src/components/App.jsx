@@ -9,15 +9,20 @@ import api from '../api';
 import MainNavbar from './MainNavbar';
 import Footer from './pages/Footer';
 // import Calendar from 'react-calendar';
-import Calendar from 'react-calendar/dist/entry.nostyle';
+// import Calendar from 'react-calendar/dist/entry.nostyle';
+// import Timeline from 'react-calendar-timeline'
+import 'react-calendar-timeline/lib/Timeline.css'
+// import moment from 'moment'
+
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      countries: []
+      dates: []
     }
   }
+  
 
   handleLogoutClick(e) {
     api.logout()
@@ -27,8 +32,12 @@ export default class App extends Component {
     return (
       <div className="App">
         <MainNavbar />
+<<<<<<< HEAD
         <Calendar />
         <Footer />
+=======
+        {/* <Calendar /> */}
+>>>>>>> 7588f2422f7c8897209ea01c0b8e810c0146a203
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/staff" component={Staff} />

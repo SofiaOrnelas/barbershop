@@ -6,7 +6,6 @@ export default class App extends Component {
     super(props)
     this.state = {
       dates: new Date(),
-      calendarType: "ISO 8601"
     }
   }
 
