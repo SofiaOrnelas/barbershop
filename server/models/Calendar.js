@@ -11,4 +11,4 @@ const schema = new Schema({
     timestamps: true
   });
 
-module.exports = mongoose.model('StreetArt', schema);
+module.exports = mongoose.model('Calendar', schema);

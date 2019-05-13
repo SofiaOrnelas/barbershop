@@ -1,19 +1,19 @@
 const express = require('express');
-const StreetArt = require('../models/StreetArt');
+const Calendar = require('../models/Calendar');
 const uploader = require('../configs/cloudinary');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-  StreetArt.find()
-    .then(streetArts => {
-      res.json(streetArts)
+  Calendar.find()
+    .then(Calendars => {
+      res.json(Calendars)
     })
 });
 
-router.get('/:streetArtId', (req, res, next) => {
-  StreetArt.findById(req.params.streetArtId)
-    .then(streetArt => {
-      res.json(streetArt)
+router.get('/:CalendarId', (req, res, next) => {
+  Calendar.findById(req.params.CalendarId)
+    .then(Calendar => {
+      res.json(Calendar)
     })
 });
 
@@ -21,15 +21,15 @@ router.get('/:streetArtId', (req, res, next) => {
 router.post('/', uploader.single('picture'), (req, res, next) => {
   let { lat, lng } = req.body
   let pictureUrl = req.file.url
-  StreetArt.create({
+  Calendar.create({
     pictureUrl,
     location: {
       type: 'Point',
       coordinates: [lng,lat]
     }
   })
-    .then(streetArt => {
-      res.json(streetArt)
+    .then(Calendar => {
+      res.json(Calendar)
     })
     .catch(next)
 });

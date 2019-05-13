@@ -10,5 +10,9 @@
   },
   "engines": {
     "node": "8.9.4"
+  },
+  "dependencies": {
+    "react-calendar": "^2.18.1",
+    "react-calendar-timeline": "^0.25.1"
   }
 }
