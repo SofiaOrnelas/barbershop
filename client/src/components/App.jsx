@@ -9,7 +9,7 @@ import api from '../api';
 import NavBar from './NavBar';
 import MainContent from './MainContent';
 import Calendar from './Calendar';
-
+import Footer from './pages/Footer';
 // import Calendar from 'react-calendar/dist/entry.nostyle';
 // import Timeline from 'react-calendar-timeline'
 // import 'react-calendar-timeline/lib/Timeline.css'
@@ -43,7 +43,11 @@ export default class App extends Component {
           <Route path="/login" component={Login} />
           <Route render={() => <h2>404</h2>} />
         </Switch>
+        <div>
+          <Footer />
+        </div>
       </div>
+      
     );
   }
 }

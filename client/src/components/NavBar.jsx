@@ -27,7 +27,7 @@ export default class NavBar extends Component {
   }
   render() {
     return (
-      <Navbar color="danger" dark expand="sm" className="mb-5">
+      <Navbar color="dark" dark expand="sm" className="mb-5 navbar">
         <NavbarBrand tag={Link} to="/">Barbearia Du'Arte</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>

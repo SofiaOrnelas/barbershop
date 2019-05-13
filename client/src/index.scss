@@ -22,7 +22,9 @@ $primary: #32c3ff;
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 16px "Arimo", sans-serif;
+  flex-grow: 1;
+ 
 }
 
 .info {
@@ -42,6 +44,9 @@ body {
 // Style for App component
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -52,6 +57,7 @@ body {
     background-color: $primary;
     padding: 20px;
     color: white;
+    font-family: 
 
     a {
       color: white;
@@ -113,4 +119,27 @@ body {
     width: 50px;
     object-fit: cover;
   }
+}
+
+////// CLASSES BARBEARIA
+
+.footer1{
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 10vh;
+}
+
+.foot-info{
+  margin-left:-40px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.navbar{
+background-color: black !important;
+display: flex;
+// flex-direction: column;
+min-height: 10vh;
 }
