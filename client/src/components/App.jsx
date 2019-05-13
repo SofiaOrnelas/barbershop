@@ -32,12 +32,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <MainNavbar />
-<<<<<<< HEAD
-        <Calendar />
-        <Footer />
-=======
         {/* <Calendar /> */}
->>>>>>> 7588f2422f7c8897209ea01c0b8e810c0146a203
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/staff" component={Staff} />
