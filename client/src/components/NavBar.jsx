@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 import api from '../api';
 
-export default class MainNavbar extends Component {
+export default class NavBar extends Component {
   constructor(props) {
     super(props);
 
