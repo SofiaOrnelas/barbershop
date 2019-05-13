@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+// import Carousel from 'react-bootstrap/Carousel';
 
 
 export default class MainContent extends Component {
@@ -9,7 +9,7 @@ export default class MainContent extends Component {
         <div> Meet our staff 
           {/* <img src= {Admin.pictureUrl} alt=""/> */}
         </div> 
-        <Carousel>                
+        {/* <Carousel>                
           <Carousel.Item>
             <img
               className="d-block w-100"
@@ -45,7 +45,7 @@ export default class MainContent extends Component {
               <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
             </Carousel.Caption>
           </Carousel.Item>
-        </Carousel>
+        </Carousel> */}
         <div> Map </div> 
       </div>
     )
