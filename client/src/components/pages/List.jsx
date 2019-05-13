@@ -7,19 +7,19 @@ export default class List extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      streetArts: null
+      Calendars: null
     }
   }
-  renderGoogleMapLink(streetArt) {
-    let [lng,lat] = streetArt.location.coordinates
+  renderGoogleMapLink(Calendar) {
+    let [lng,lat] = Calendar.location.coordinates
     return <a href={`https://www.google.com/maps/dir//${lat},${lng}/@${lat},${lng},15z`} target="_blank">{lng},{lat}</a>
   }
   render() {
     return (
       <Container>
         <h1 className="mb-4">List of Street Arts</h1>
-        {!this.state.streetArts && <div>Loading...</div>}
-        {this.state.streetArts && <Table hover className="street-art-list">
+        {!this.state.Calendars && <div>Loading...</div>}
+        {this.state.Calendars && <Table hover className="street-art-list">
           <thead>
             <tr>
               <th>Picture</th>
@@ -28,14 +28,14 @@ export default class List extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.streetArts.map(streetArt => <tr key={streetArt._id} >
+            {this.state.Calendars.map(Calendar => <tr key={Calendar._id} >
               <td>
-                <img src={streetArt.pictureUrl} alt=""/>
+                <img src={Calendar.pictureUrl} alt=""/>
               </td>
               <td>
-                {this.renderGoogleMapLink(streetArt)}
+                {this.renderGoogleMapLink(Calendar)}
               </td>
-              <td><Button tag={Link} to={"/street-art-detail/"+streetArt._id} color="danger" outline>Detail</Button></td>
+              <td><Button tag={Link} to={"/street-art-detail/"+Calendar._id} color="danger" outline>Detail</Button></td>
             </tr>)}
           </tbody>
         </Table>}
@@ -43,10 +43,10 @@ export default class List extends Component {
     )
   }
   componentDidMount() {
-    api.getStreetArts()
-      .then(streetArts => {
+    api.getCalendars()
+      .then(Calendars => {
         this.setState({
-          streetArts
+          Calendars
         })
       })
   }
