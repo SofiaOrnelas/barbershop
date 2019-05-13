@@ -9,6 +9,7 @@ require('dotenv').config({ path: path.join(__dirname, '../.env') })
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const Admin = require ("../models/Admin");
 const Calendar = require("../models/Calendar");
 
 const bcryptSalt = 10;
@@ -50,11 +51,14 @@ let CalendarDocs = [
   })
 ]
 
-// let visitDocs = [
-//   new Visit({
-//     _user: userDocs[0]._id,
-//     _Calendar: CalendarDocs[0]._id,
-//   }),
+let AdminDocs = [
+new Admin({
+        name: Duarte,
+        email: "2cowork@gmail.com",
+        password: bcrypt.hashSync("duarte", bcrypt.genSaltSync(bcryptSalt)),
+        role: ['OWNER'],
+        pictureUrl: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D1720241048207314&imgrefurl=https%3A%2F%2Fm.facebook.com%2FBarbearia-DuArte-1720241048207314%2F&docid=61RTryoLK1C4oM&tbnid=tNqLVrK_O-C30M%3A&vet=10ahUKEwjKhqTD-5jiAhWC1uAKHROMD3gQMwhAKAAwAA..i&w=960&h=955&bih=781&biw=1301&q=barbearia%20du%27arte&ved=0ahUKEwjKhqTD-5jiAhWC1uAKHROMD3gQMwhAKAAwAA&iact=mrc&uact=8' ,   
+
 //   new Visit({
 //     _user: userDocs[0]._id,
 //     _Calendar: CalendarDocs[1]._id,
@@ -62,8 +66,8 @@ let CalendarDocs = [
 //   new Visit({
 //     _user: userDocs[1]._id,
 //     _Calendar: CalendarDocs[0]._id,
-//   })
-// ]
+  })
+]
 
 
 // Promise.all([

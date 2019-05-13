@@ -6,9 +6,14 @@ import Gallery from './pages/Gallery';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
-import MainNavbar from './MainNavbar';
+import NavBar from './NavBar';
+import MainContent from './MainContent';
 import Calendar from './Calendar';
+<<<<<<< HEAD
 import Footer from './pages/Footer';
+=======
+
+>>>>>>> ea089bd8cd79f7a4ab58777a13a9fbaab5fdb78f
 // import Calendar from 'react-calendar/dist/entry.nostyle';
 // import Timeline from 'react-calendar-timeline'
 // import 'react-calendar-timeline/lib/Timeline.css'
@@ -31,8 +36,14 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+<<<<<<< HEAD
         <MainNavbar />
         <Calendar />  
+=======
+        <NavBar />
+        <Calendar />  
+        <MainContent/>
+>>>>>>> ea089bd8cd79f7a4ab58777a13a9fbaab5fdb78f
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/staff" component={Staff} />
