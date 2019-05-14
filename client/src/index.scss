@@ -7,7 +7,7 @@ $primary: #32c3ff;
 // To install Boostrap:
 // 1) Run in the client folder: $ npm i bootstrap
 // 2) Import bootstrap with the following line
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+// @import '../node_modules/bootstrap/scss/bootstrap.scss';
 // 
 // To install Reactstrap:
 // 1) Run in the client folder: $ npm i reactstrap
@@ -22,9 +22,7 @@ $primary: #32c3ff;
 body {
   margin: 0;
   padding: 0;
-  font-family: 16px "Arimo", sans-serif;
-  flex-grow: 1;
- 
+  font-family: sans-serif;
 }
 
 .info {
@@ -44,9 +42,6 @@ body {
 // Style for App component
 .App {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -57,7 +52,6 @@ body {
     background-color: $primary;
     padding: 20px;
     color: white;
-    font-family: 
 
     a {
       color: white;
@@ -104,42 +98,4 @@ body {
     font-size: 1.2em;
     color: $primary;
   }
-}
-
-
-.street-art-list {
-
-  td {
-    vertical-align: middle;
-    padding: 4px 12px;
-  }
-
-  img {
-    height: 50px;
-    width: 50px;
-    object-fit: cover;
-  }
-}
-
-////// CLASSES BARBEARIA
-
-.footer1{
-  width: 100%;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  min-height: 10vh;
-}
-
-.foot-info{
-  margin-left:-40px;
-  padding-bottom: 20px;
-  text-align: center;
-}
-
-.navbar{
-background-color: black !important;
-display: flex;
-// flex-direction: column;
-min-height: 10vh;
 }

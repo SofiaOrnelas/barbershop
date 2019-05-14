@@ -9,11 +9,9 @@ export default class Home extends Component {
   render() {                
     return (
       <div className="Home">
-        <h2>Welcome to Barbearia Du'Arte!</h2>
-        <p>Have fun <span role="img" aria-label="smile">😀</span></p>
+        <h2>Home</h2>
+        <p>This is a sample project with the MERN stack</p>
       </div>
-
-
     );
   }
 }

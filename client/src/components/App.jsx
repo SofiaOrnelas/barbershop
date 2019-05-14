@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Link, NavLink, Switch } from 'react-router-dom';
 import Home from './pages/Home';
-import Staff from './pages/Staff';
-import Gallery from './pages/Gallery';
+/* import Countries from './pages/Countries';
+import AddCountry from './pages/AddCountry'; */
+import Secret from './pages/Secret';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
-import NavBar from './NavBar';
-import MainContent from './MainContent';
-import Calendar from './Calendar';
-import Footer from './pages/Footer';
-// import Calendar from 'react-calendar/dist/entry.nostyle';
-// import Timeline from 'react-calendar-timeline'
-// import 'react-calendar-timeline/lib/Timeline.css'
-// import moment from 'moment'
-
+import logo from '../logo.svg';
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      dates: []
+      countries: []
     }
   }
-  
 
   handleLogoutClick(e) {
     api.logout()
@@ -32,22 +24,27 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <Calendar />  
-        <MainContent/>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">MERN Boilerplate</h1>
+          <NavLink to="/" exact>Home</NavLink>
+{/*           <NavLink to="/countries">Countries</NavLink>
+          <NavLink to="/add-country">Add country</NavLink> */}
+          {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
+          {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
+          {api.isLoggedIn() && <Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</Link>}
+          <NavLink to="/secret">Secret</NavLink>
+        </header>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/staff" component={Staff} />
-          <Route path="/gallery" component={Gallery} />
+{/*           <Route path="/countries" component={Countries} />
+          <Route path="/add-country" component={AddCountry} /> */}
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/secret" component={Secret} />
           <Route render={() => <h2>404</h2>} />
         </Switch>
-        <div>
-          <Footer />
-        </div>
       </div>
-      
     );
   }
 }

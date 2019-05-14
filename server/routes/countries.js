@@ -1,28 +1,29 @@
-const express = require('express');
-const Admin = require('../models/Admin')
+/* const express = require('express');
+const Country = require('../models/Country')
 
 const router = express.Router();
 
 // Route to get all countries
 router.get('/', (req, res, next) => {
-  Admin.find()
+  Country.find()
     .then(countries => {
       res.json(countries);
     })
     .catch(err => next(err))
 });
 
-// Route to add a Admin
+// Route to add a country
 router.post('/', (req, res, next) => {
   let { name, capitals, area, description } = req.body
-  Admin.create({ name, capitals, area, description })
-    .then(Admin => {
+  Country.create({ name, capitals, area, description })
+    .then(country => {
       res.json({
         success: true,
-        Admin
+        country
       });
     })
     .catch(err => next(err))
 });
 
 module.exports = router;
+ */

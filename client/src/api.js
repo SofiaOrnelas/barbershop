@@ -5,7 +5,6 @@ const service = axios.create({
   withCredentials: true
 })
 
-
 const errHandler = err => {
   console.error(err)
   if (err.response && err.response.data) {
@@ -63,21 +62,21 @@ export default {
   },
 
   // This is an example on how to use this method in a different file
-  // api.getCalendars().then(Calendars => { /* ... */ })
-  getCalendars() {
+  // api.getCountries().then(countries => { /* ... */ })
+/*   getCountries() {
     return service
-      .get('/street-arts')
+      .get('/countries')
       .then(res => res.data)
       .catch(errHandler)
   },
 
-  addAdmin(body) {
+  addCountry(body) {
     return service
       .post('/countries', body)
       .then(res => res.data)
       .catch(errHandler)
   },
-
+ */
   getSecret() {
     return service
       .get('/secret')
