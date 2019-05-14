@@ -10,5 +10,13 @@
   },
   "engines": {
     "node": "8.9.4"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "interactjs": "^1.4.1",
+    "moment": "^2.24.0",
+    "react-calendar": "^2.18.1",
+    "react-calendar-timeline": "^0.25.1",
+    "reactstrap": "^8.0.0"
   }
 }
