@@ -13,7 +13,6 @@ router.get('/schedules', (req, res, next) => {
     .catch(err => next(err))
 });
 
-
 // CREATE THE SCHEDULE OF THE EMPLOYEE/OWNER
 router.post('/schedules', isEmployee, (req, res, next) => {
   let { date, isWorkingMorning, isWorkingAfternoon } = req.body
