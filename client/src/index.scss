@@ -22,7 +22,8 @@ $primary: black;
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Patua One', cursive;
+  font-size: 18px;
 }
 
 .info {
@@ -41,31 +42,38 @@ body {
 // --------------------
 // Style for App component
 .App {
-  text-align: center;
+   align-items: center;
 
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
-  }
+  // .App-logo {
+  //   animation: App-logo-spin infinite 20s linear;
+  //   height: 80px;
+  // }
 
   .App-header {
     background-color: $primary;
-    padding: 20px;
-    color: white;
+    padding: 10px;
+    
 
     a {
-      color: white;
+      color: rgb(255, 255, 255);
       padding: 0 5px;
       text-decoration: unset;
     }
 
     a.active {
       font-weight: bold;
+
+
+    }
+    a:hover {
+      color: #629c7d;
     }
   }
 
   .App-title {
-    font-size: 1.5em;
+    height:100px;
+    width:100px;
+    text-align: left;
   }
 
   .App-intro {
@@ -98,4 +106,10 @@ body {
     font-size: 1.2em;
     color: $primary;
   }
+}
+
+//Links
+.switch{
+  margin-right: 10px;
+  margin: 10px;
 }
