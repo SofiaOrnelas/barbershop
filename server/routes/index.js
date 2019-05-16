@@ -1,12 +1,15 @@
 const express = require('express');
-const { isLoggedIn, isEmployee } = require('../middlewares')
+const { isLoggedIn, isEmployee } = require('../middlewares');
 const router = express.Router();
-const Schedule = require('../models/Schedule')
+const Schedule = require('../models/Schedule');
+const nodemailer = require ('nodemailer');
+const User = require ('../models/User');
 
 
 // Route to get all dates
 router.get('/schedules', (req, res, next) => {
   Schedule.find()
+    .populate("_employee")
     .then(dates => {
       res.json(dates);
     })
@@ -76,8 +79,31 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
     .populate("bookings._customer")
     .then(schedule => {
       let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
+      console.log("schedule", schedule)
+      console.log("desiredBooking", desiredBooking)
       if (desiredBooking && desiredBooking._customer) {
-        console.log("TODO: send an email to:", desiredBooking._customer.email)
+        let d = schedule.date.getDate()
+        let m = schedule.date.getMonth() + 1
+        let y = schedule.date.getFullYear()
+        let H = Math.floor(hour)
+        let M = hour % 1 === 0.5 ? "30" : "00"
+        let transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_PASS
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
+        });
+        transporter.sendMail({
+          from: '"2CoWork 👻" <2coworkiron@gmail.com>',
+          to: desiredBooking._customer.email,
+          subject: 'DuArte Barbershop Booking Cancelled for ',
+          // text: '',
+          html: `Your booking on ${d}/${m}/${y} at ${H}:${M} was cancelled. We will contact you as soon as possible. Please don't reply this email`,
+        })
         desiredBooking._customer = null
       }
       else {
@@ -92,23 +118,6 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
         })
     })
     .catch(next)
-  
-  // Bookings.findOneAndDelete({
-  //   _id: req.user._Id,
-  //   _user: req.body.hour,
-  // })
-  //   .then(schedule => {
-  //     if (schedule) {
-  //       res.json({
-  //         message: 'The Schedule was successfully deleted',
-  //       })
-  //     }
-  //     else {
-  //       res.json({
-  //         message: `There is no Schedule with the id "${req.params.scheduleId} or you are not the owner"`,
-  //       })
-  //     }
-  //   })
 });
 
 

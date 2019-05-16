@@ -12,6 +12,10 @@ const userSchema = new Schema({
     required: true,
     // minlength: 5,
   },
+  name: {
+    type: String,
+    required: true,
+  },
   phone: {
     type: Number,
     // required: true,
