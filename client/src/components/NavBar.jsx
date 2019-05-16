@@ -25,6 +25,11 @@ export default class NavBar extends Component {
       isOpen: !this.state.isOpen
     });
   }
+
+  handleLogoutClick(e) {
+    api.logout()
+  }
+  
   render() {
     return (
       <Navbar color="dark" dark expand="sm" className="mb-5 navbar">

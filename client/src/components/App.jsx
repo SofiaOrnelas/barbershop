@@ -16,10 +16,6 @@ export default class App extends Component {
     }
   }
 
-  handleLogoutClick(e) {
-    api.logout()
-  }
-
   render() {
     return (   /////////ORIGINAL //////
 //       <div className="App">
@@ -46,7 +42,7 @@ export default class App extends Component {
 
 
    <div className="App">
-        <NavBar />
+        <NavBar/>
       
         <Switch className="switch">
           <Route path="/" exact component={Home} />
