@@ -7,7 +7,7 @@ $primary: black;
 // To install Boostrap:
 // 1) Run in the client folder: $ npm i bootstrap
 // 2) Import bootstrap with the following line
-// @import '../node_modules/bootstrap/scss/bootstrap.scss';
+ @import '../node_modules/bootstrap/scss/bootstrap.scss';
 // 
 // To install Reactstrap:
 // 1) Run in the client folder: $ npm i reactstrap
@@ -22,7 +22,7 @@ $primary: black;
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Patua One', cursive;
+  font-family: 'Cabin', sans-serif;
   font-size: 18px;
 }
 
@@ -31,7 +31,7 @@ body {
   padding: 10px 20px;
   border-radius: 10px;
   display: inline-block;
-  background-color: #5776e9;
+  background-color: #4837de;
   color: white;
 }
 
@@ -42,7 +42,7 @@ body {
 // --------------------
 // Style for App component
 .App {
-   align-items: center;
+   text-align: center;
 
   // .App-logo {
   //   animation: App-logo-spin infinite 20s linear;
@@ -51,7 +51,7 @@ body {
 
   .App-header {
     background-color: $primary;
-    padding: 10px;
+    padding: 50px;
     
 
     a {
@@ -71,8 +71,8 @@ body {
   }
 
   .App-title {
-    height:100px;
-    width:100px;
+    height:90px;
+    width:90px;
     text-align: left;
   }
 
@@ -113,3 +113,33 @@ body {
   margin-right: 10px;
   margin: 10px;
 }
+
+.logoHome{
+  // display: flex;
+  // text-align: left;
+  padding: 2px 10px;
+}
+
+.navbar{
+  background-color: black !important;
+  display: flex;
+  // flex-direction: column;
+  min-height: 10vh;
+  }
+
+  .footer1{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    min-height: 10vh;
+  }
+
+  .icons{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+    
+  }
+
