@@ -8,7 +8,8 @@ export default class Home extends Component {
   // }
   render() {                
     return (
-      <div className="Home">
+      <div className="Home">  
+      <h1>Home Page</h1>
     
       </div>
     );
