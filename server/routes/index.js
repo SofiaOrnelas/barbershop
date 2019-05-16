@@ -3,7 +3,6 @@ const { isLoggedIn, isEmployee } = require('../middlewares');
 const router = express.Router();
 const Schedule = require('../models/Schedule');
 const nodemailer = require ('nodemailer');
-const User = require ('../models/User');
 
 
 // Route to get all dates
@@ -54,6 +53,7 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
   let hour = Number(req.body.hour)
   Schedule.findById(req.params.scheduleId)
     .then(schedule => {
+      console.log(schedule)
       let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
       if (desiredBooking && !desiredBooking._customer) {
         desiredBooking._customer = req.user._id
