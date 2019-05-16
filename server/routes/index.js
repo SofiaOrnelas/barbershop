@@ -98,7 +98,7 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
           }
         });
         transporter.sendMail({
-          from: '"2CoWork 👻" <2coworkiron@gmail.com>',
+          from: '"DuArte Barbershop ✂" <barbearia.duarte.iron@gmail.com>',
           to: desiredBooking._customer.email,
           subject: 'DuArte Barbershop Booking Cancelled for ',
           // text: '',

@@ -5,6 +5,7 @@ import Secret from './pages/Secret';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
+// import Calendar from './pages/Calendar';
 import Footer from './Footer';
 import api from '../api';
  
@@ -43,7 +44,8 @@ export default class App extends Component {
 
    <div className="App">
         <NavBar/>
-      
+{/*         <Calendar/>
+ */}      
         <Switch className="switch">
           <Route path="/" exact component={Home} />
           <Route path="/signup" component={Signup} />
