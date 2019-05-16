@@ -80,4 +80,11 @@ export default {
       .then(res => res.data)
       .catch(errHandler)
   },
+
+/*   getSchedule() {
+    return service
+      .get('/schedules')
+      .then(res => res.data)
+      .catch(errHandler)
+  }, */
 }
