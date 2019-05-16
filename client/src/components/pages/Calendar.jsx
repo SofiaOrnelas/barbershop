@@ -13,7 +13,7 @@ export default class Calendar extends Component {
 render() {
   let bookings = []
    return (
-    <div className="Caledar">
+    <div className="Calendar">
     <h1>Schedule</h1>
     {this.state.schedules && <table>
     <thead>

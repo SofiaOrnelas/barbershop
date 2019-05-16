@@ -5,6 +5,7 @@ import Secret from './pages/Secret';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
+import Staff from './pages/Staff'
 // import Calendar from './pages/Calendar';
 import Footer from './Footer';
 import api from '../api';
@@ -41,11 +42,12 @@ export default class App extends Component {
 //         </Switch>
 //       </div>
 
-
    <div className="App">
         <NavBar/>
-{/*         <Calendar/>
- */}      
+        {/* <Calendar/> */}
+        <Staff/>
+        <Home/>
+      
         <Switch className="switch">
           <Route path="/" exact component={Home} />
           <Route path="/signup" component={Signup} />
@@ -54,9 +56,9 @@ export default class App extends Component {
           <Route render={() => <h2>404</h2>} />
         </Switch>
         
-        <div>
+        
           <Footer />
-        </div>
+        
       </div>
 
 

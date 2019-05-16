@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Home extends Component {
+export default class Staff extends Component {
   // constructor(props) {
   //   super(props)
   //   this.state = {
@@ -8,9 +8,12 @@ export default class Home extends Component {
   // }
   render() {                
     return (
-      <div className="Home">
-        <p>Homepage</p>
-      </div>
+    
+       <div className="staff">
+         <img src="/staff.jpg" width="100%" alt="staff.png"></img>
+       </div>
+
+    
     );
   }
 }
