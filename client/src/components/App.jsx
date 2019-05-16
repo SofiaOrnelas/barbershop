@@ -46,7 +46,6 @@ export default class App extends Component {
         <NavBar/>
         {/* <Calendar/> */}
         <Staff/>
-        <Home/>
       
         <Switch className="switch">
           <Route path="/" exact component={Home} />
