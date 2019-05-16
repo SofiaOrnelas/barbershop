@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Route, Link, NavLink, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Secret from './pages/Secret';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import api from '../api';
+// Link, NavLink,
+// import api from '../api';
  
 export default class App extends Component {
   constructor(props) {

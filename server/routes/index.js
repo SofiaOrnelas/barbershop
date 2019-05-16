@@ -5,6 +5,10 @@ const Schedule = require('../models/Schedule');
 const nodemailer = require ('nodemailer');
 const User = require ('../models/User');
 
+// TODO name at the signup require
+// TODO buscar o api
+// TODO  MANDAR EMAIL QUANDO SE CONFIRMA RESERVA TMB
+
 
 // Route to get all dates
 router.get('/schedules', (req, res, next) => {
@@ -98,10 +102,9 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
           }
         });
         transporter.sendMail({
-          from: '"2CoWork 👻" <2coworkiron@gmail.com>',
+          from: '"DuArte 👻" <barbearia.duarte.iron@gmail.com>',
           to: desiredBooking._customer.email,
           subject: 'DuArte Barbershop Booking Cancelled for ',
-          // text: '',
           html: `Your booking on ${d}/${m}/${y} at ${H}:${M} was cancelled. We will contact you as soon as possible. Please don't reply this email`,
         })
         desiredBooking._customer = null
