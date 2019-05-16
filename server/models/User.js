@@ -10,11 +10,11 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5,
+    // minlength: 5,
   },
   phone: {
     type: Number,
-    // required: true,
+    required: true,
   },
   role: {
     type: String,
