@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
 import Calendar from './pages/Calendar';
+import Staff from './pages/Staff'
 import Footer from './Footer';
 
 // Link, NavLink,
@@ -43,10 +44,11 @@ export default class App extends Component {
 //         </Switch>
 //       </div>
 
-
    <div className="App">
         <NavBar/>
-        <Calendar/>      
+        {/* <Calendar/> */}
+        
+      
         <Switch className="switch">
           <Route path="/" exact component={Home} />
           <Route path="/signup" component={Signup} />
@@ -55,9 +57,9 @@ export default class App extends Component {
           <Route render={() => <h2>404</h2>} />
         </Switch>
         
-        <div>
+        
           <Footer />
-        </div>
+        
       </div>
 
 

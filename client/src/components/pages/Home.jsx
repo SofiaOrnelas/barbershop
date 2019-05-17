@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import Calendar from './Calendar';
+import Staff from './Staff'
 export default class Home extends Component {
   // constructor(props) {
   //   super(props)
@@ -8,9 +9,10 @@ export default class Home extends Component {
   // }
   render() {                
     return (
-      <div className="Home">  
-      <h1>Home Page</h1>
-    
+      <div>
+        <p>Homepage</p>
+        <Calendar/>      
+        <Staff/>
       </div>
     );
   }

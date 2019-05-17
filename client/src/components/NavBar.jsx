@@ -32,7 +32,7 @@ export default class NavBar extends Component {
   
   render() {
     return (
-      <Navbar color="dark" dark expand="sm" className="mb-5 navbar">
+      <Navbar color="dark" dark expand="sm" className="navbar">
         <NavbarBrand tag={Link} to="/">
         <div className="logoHome">
           <img src="/Logo_Branco.png" className="App-title" alt="logo" />
