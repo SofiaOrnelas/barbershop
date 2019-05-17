@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Route, Link, NavLink, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Secret from './pages/Secret';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
-// import Staff from './pages/Staff'
-// import Calendar from './pages/Calendar';
 import Footer from './Footer';
-import api from '../api';
+
+// Link, NavLink,
+// import api from '../api';
  
 export default class App extends Component {
   constructor(props) {
@@ -45,9 +45,7 @@ export default class App extends Component {
    <div className="App">
         <NavBar/>
         {/* <Calendar/> */}
-        {/* <div className="staff">
-         <img src="/staff.jpg" width="100%" alt="staff.png"></img>
-       </div> */}
+        
       
         <Switch className="switch">
           <Route path="/" exact component={Home} />
