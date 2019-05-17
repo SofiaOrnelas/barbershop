@@ -105,7 +105,7 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
           from: '"DuArte Barbershop ✂" <barbearia.duarte.iron@gmail.com>',
           to: desiredBooking._customer.email,
           subject: 'DuArte Barbershop Booking Cancelled for ',
-          html: `Your booking on ${d}/${m}/${y} at ${H}:${M} was cancelled. We will contact you as soon as possible. Please don't reply this email`,
+          html: `Your booking on ${d}/${m}/${y} at ${H}:${M} was cancelled. We will contact you as soon as possible. Please don't reply this email. Could be a virus to your hair :(`,
         })
         desiredBooking._customer = null
       }
