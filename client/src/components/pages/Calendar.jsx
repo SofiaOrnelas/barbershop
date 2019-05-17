@@ -19,6 +19,7 @@ render() {
     {this.state.schedules && <table hover className="shedules-list">
     <thead>
       <tr>
+        {/* With images */}
         <th>Barber1</th>
         <th>Barber2</th>
         <th>Barber3</th>
