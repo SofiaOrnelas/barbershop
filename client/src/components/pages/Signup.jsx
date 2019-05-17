@@ -8,8 +8,9 @@ export default class Signup extends Component {
       email: "",
       password: "",
       phone: null,
-      message: null
-    }
+      message: null,
+      name: null
+      }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
@@ -34,7 +35,8 @@ export default class Signup extends Component {
        let data = {
       email: this.state.email,
       password: this.state.password,
-      phone: this.state.phone
+      phone: this.state.phone,
+      name: this.state.name
     }
     api.signup(data)
       .then(result => {
@@ -55,10 +57,11 @@ export default class Signup extends Component {
         <form>
           {/* TODO introduzir nomes para o nelson ficar contente */}
           {/* TODO GMAIL FACEBOOK WHATEVER AUTENTICATION */}
-          email: <input type="text" value={this.state.email} name="email" onChange={this.handleInputChange} placeholder="Enter your Email"/> <br />
+          Name: <input type="text" value={this.state.name} name="Name" onChange={this.handleInputChange} placeholder="Enter your Name"/> <br />
+          Email: <input type="text" value={this.state.email} name="Email" onChange={this.handleInputChange} placeholder="Enter your Email"/> <br />
           Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} placeholder="Enter your Password"/> <br />
           {/* TODO PHONE NUMBER PATTERN */}
-          Phone: <input type="tel" maxlength="9" style={{appearance: 'none'}} value={this.state.phone} name="phone" onChange={this.handleInputChange} placeholder="Enter your Phone"  pattern="[0-1]{2}-[0-1]{8}"/> <br />
+          Phone: <input type="tel" maxLength="9" style={{appearance: 'none'}} value={this.state.phone} name="phone" onChange={this.handleInputChange} placeholder="Enter your Phone"  pattern="[0-1]{2}-[0-1]{8}"/> <br />
           <button onClick={(e) => this.handleClick(e)}>Signup</button>
         </form>
         {this.state.message && <div className="info info-danger">
