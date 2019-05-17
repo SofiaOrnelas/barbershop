@@ -81,7 +81,7 @@ export default {
       .catch(errHandler)
   },
 
-  getSchedule() {
+  getSchedules() {
   return service
     .get('/schedules')
     .then(res => res.data)
