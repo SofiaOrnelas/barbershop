@@ -1,4 +1,4 @@
-/* import React, {Component} from 'react' 
+import React, {Component} from 'react' 
 import api from '../../api'
 
 export default class Calendar extends Component {
@@ -6,16 +6,17 @@ export default class Calendar extends Component {
     super(props)
     this.state = {
       schedules: null,
-      bookings: null,
+      bookings: [],
   }
 }
 
 render() {
-  let bookings = []
+  // let bookings = []
    return (
-    <div className="Caledar">
+    <div className="Calendar">
     <h1>Schedule</h1>
-    {this.state.schedules && <table>
+    {!this.state.streetArts && <div>Loading...</div>}
+    {this.state.schedules && <table hover className="shedules-list">
     <thead>
       <tr>
         <th>Barber1</th>
@@ -27,7 +28,7 @@ render() {
     </thead>
     <tbody>
     {this.state.schedules.map(schedule => <tr key={schedule._id}>
-      <td>{schedule.hour}</td>
+      <td></td>
       <td>{schedule}</td>
       <td></td>
       <td></td>
@@ -61,4 +62,3 @@ render() {
       })
   }
 }
- */
