@@ -8,12 +8,9 @@ export default class Staff extends Component {
   // }
   render() {                
     return (
-    
        <div className="staff">
          <img src="/staff.jpg" width="100%" alt="staff.png"></img>
        </div>
-
-    
-    );
+    )
   }
 }
