@@ -8,6 +8,7 @@ $primary: black;
 // 1) Run in the client folder: $ npm i bootstrap
 // 2) Import bootstrap with the following line
  @import '../node_modules/bootstrap/scss/bootstrap.scss';
+
 // 
 // To install Reactstrap:
 // 1) Run in the client folder: $ npm i reactstrap
@@ -57,7 +58,6 @@ body {
   .App-header {
     background-color: $primary;
     
-
     a {
       color: rgb(255, 255, 255);
       padding: 0 5px;
@@ -75,8 +75,8 @@ body {
   }
 
   .App-title {
-    height:90px;
-    width:90px;
+    max-height:70px;
+    max-width:70px;
     text-align: left;
   }
 
@@ -124,23 +124,23 @@ body {
   background-color: black !important;
   display: flex;
   // flex-direction: column;
-  min-height: 10vh;
+  min-height: 8vh;
   }
-
+// FOOTER ------------
   .footer1{
     width: 100%;
     background-color: black;
     display: flex;
     flex-direction: column;
-    min-height: 10vh;
+    min-height: 10px;
     margin-top: auto;
   }
 
   .icons{
     display: flex;
     justify-content: center;
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
   }
 
     .icons img {
@@ -153,18 +153,50 @@ body {
       height: 100%;
       margin: 0;
     }
-
-    .contacts{
-      height: 300px;
+    //   CONTACTS   ----------------
+    .mainContacts{
+      display: flex;
+      flex-direction: row;
+      // align-content: center;
+      height: 350px;
       width: 100%;
       background-color: rgba(206, 150, 7, 0.577);
     }
 
-    .sliderHome{
-      height: 400px;
-      width: 100%;
-      background-color: rgb(25, 202, 158);
+    .mainContacts-txt{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 85%;
+      width: 35%;
+      margin: auto;
+      background-color: rgba(48, 185, 226, 0.577);
     }
+
+    .mainContacts-map{
+      display: flex;
+      height: 85%;
+      width: 55%;
+      margin: auto;
+      background-color: rgba(101, 221, 21, 0.577);
+    }
+
+    .mainContacts-map-MAP{
+      height: 100%;
+      width: 100%;
+    }
+
+    .mainContacts ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    // .contact p{
+    //   font-size: 60px;
+    //   line-height: 20px;
+    // }
+
 
     .calendar{
       height: 500px;
@@ -173,6 +205,17 @@ body {
       margin: 0;
       background-color: black;
     }
+
+    h4{
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    h5 {
+      font-size: 16px;
+      }
+
+
     // main{
     //   flex-grow: -1;
     // }
