@@ -11,7 +11,7 @@ export default class Calendar extends Component {
       bookings: [],
       date: new Date()
     }
-    this.incrementDate = this.incrementDate.bind(this)
+    this.increaseDate = this.increaseDate.bind(this)
   }
 
   getPossibleHours() {
@@ -30,12 +30,19 @@ export default class Calendar extends Component {
     return "Unavailable"
   }
 
-  incrementDate() {
-    // TODO: change
+  increaseDate() {
+    // TODO: change ++
     this.setState({
       date: new Date("2019-05-21")
     })
   }
+
+  // uncreaseDate() {
+  //   // TODO: change --
+  //   this.setState({
+  //     date: new Date("2019-05-20")
+  //   })
+  // }
 
   render() {
     // let bookings = []
@@ -43,10 +50,10 @@ export default class Calendar extends Component {
       <div className="Calendar">
         <h1>Schedule</h1>
 
-        <Button>Before</Button>
+        {/* <Button onClick={this.uncreaseDate}>Before</Button>
+        {getReadableDate(this.state.date)} */}
+        <Button onClick={this.increaseDate}>After</Button>
         {getReadableDate(this.state.date)}
-        <Button onClick={this.incrementDate}>After</Button>
-
 
         {!this.state.schedules && <div>Loading...</div>}
         {this.state.schedules && <table className="shedules-list">
@@ -65,15 +72,7 @@ export default class Calendar extends Component {
                 {this.getAvailibity(schedule, hour)}
               </td>)}
             </tr>)}
-            <tr>
-              <td>hh</td>
-            </tr>
-            {/* {this.state.schedules.map(schedule => <tr key={schedule._id}> */}
-            {/* <td>{schedule}</td> */}
-            {/* </tr> */}
-            {/* )} */}
           </tbody>
-
         </table>}
       </div>
     );

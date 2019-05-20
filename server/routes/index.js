@@ -5,7 +5,6 @@ const Schedule = require('../models/Schedule');
 const nodemailer = require ('nodemailer');
 
 
-// TODO buscar o api
 // TODO  MANDAR EMAIL QUANDO SE CONFIRMA RESERVA TMB
 
 
