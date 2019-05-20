@@ -22,6 +22,9 @@ export default {
   isLoggedIn() {
     return localStorage.getItem('user') != null
   },
+  isLoggedInEmployee() {
+    return localStorage.getItem('user') != null && this.getLocalStorageUser().role !== "Customer"
+  },
 
   // This method returns the user from the localStorage
   // Be careful, the value is the one when the user logged in for the last time
@@ -84,6 +87,13 @@ export default {
   getSchedules() {
   return service
     .get('/schedules')
+    .then(res => res.data)
+    .catch(errHandler)
+  },
+
+  getSchedulesOfConnectedEmployee() {
+  return service
+    .get('/my-schedules')
     .then(res => res.data)
     .catch(errHandler)
   },

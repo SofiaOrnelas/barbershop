@@ -18,6 +18,15 @@ router.get('/schedules', (req, res, next) => {
     .catch(err => next(err))
 });
 
+router.get('/my-schedules', isEmployee, (req, res, next) => {
+  Schedule.find({ _employee: req.user._id })
+    .populate("_employee")
+    .then(dates => {
+      res.json(dates);
+    })
+    .catch(err => next(err))
+});
+
 // CREATE THE SCHEDULE OF THE EMPLOYEE/OWNER
 router.post('/schedules', isEmployee, (req, res, next) => {
   let { date, isWorkingMorning, isWorkingAfternoon } = req.body
