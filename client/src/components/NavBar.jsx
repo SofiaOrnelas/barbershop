@@ -43,9 +43,9 @@ export default class NavBar extends Component {
             <NavItem>
               <NavLink tag={NLink} to="/user">User</NavLink>
             </NavItem>
-            <NavItem>
+            {api.isLoggedInEmployee() && <NavItem>
               <NavLink tag={NLink} to="/employee">Employee</NavLink>
-            </NavItem>
+            </NavItem>}
             <NavItem>
               <NavLink tag={NLink} to="/gallery">Gallery</NavLink>
             </NavItem>
