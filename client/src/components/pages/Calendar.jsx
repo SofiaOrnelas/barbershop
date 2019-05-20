@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import api from '../../api'
-import { convertHourNumberToString, getReadableDate, checkIfSameDays } from "../../utils"
-import { Button } from "reactstrap"
+import React, { Component } from 'react';
+import api from '../../api';
+import { convertHourNumberToString, getReadableDate, checkIfSameDays } from "../../utils";
+import { Button } from "reactstrap";
 
 export default class Calendar extends Component {
   constructor(props) {
@@ -12,6 +12,7 @@ export default class Calendar extends Component {
       date: new Date()
     }
     this.increaseDate = this.increaseDate.bind(this)
+    this.decreaseDate = this.decreaseDate.bind(this)
   }
 
   getPossibleHours() {
@@ -31,18 +32,15 @@ export default class Calendar extends Component {
   }
 
   increaseDate() {
-    // TODO: change ++
-    this.setState({
-      date: new Date("2019-05-21")
-    })
+    this.state.date.setDate(this.state.date.getDate() + 1);
+    this.setState({date: this.state.date})
   }
 
-  // uncreaseDate() {
-  //   // TODO: change --
-  //   this.setState({
-  //     date: new Date("2019-05-20")
-  //   })
-  // }
+  decreaseDate() {
+      this.state.date.setDate(this.state.date.getDate() - 1);
+      this.setState({date: this.state.date})
+    }
+    
 
   render() {
     // let bookings = []
@@ -50,10 +48,9 @@ export default class Calendar extends Component {
       <div className="Calendar">
         <h1>Schedule</h1>
 
-        {/* <Button onClick={this.uncreaseDate}>Before</Button>
-        {getReadableDate(this.state.date)} */}
-        <Button onClick={this.increaseDate}>After</Button>
+        <Button onClick={this.decreaseDate}>Before</Button>
         {getReadableDate(this.state.date)}
+        <Button onClick={this.increaseDate}>After</Button>
 
         {!this.state.schedules && <div>Loading...</div>}
         {this.state.schedules && <table className="shedules-list">
@@ -79,6 +76,7 @@ export default class Calendar extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state.date)
     api.getSchedules()
       .then(schedules => {
         console.log(schedules)
