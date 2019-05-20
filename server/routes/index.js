@@ -51,6 +51,7 @@ router.post('/schedules', isEmployee, (req, res, next) => {
     .catch(next)
 });
 
+
 // ADD A BOOKING TO THE SCHEDULE (REQ.USER._ID AND REQ.BODY.HOUR)
 router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
   let hour = Number(req.body.hour)
@@ -58,10 +59,30 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
     .then(schedule => {
       console.log(schedule)
       let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
-      if (desiredBooking && !desiredBooking._customer) {
+      if (desiredBooking && !desiredBooking._customer) { 
+        let d = schedule.date.getDate()
+        let m = schedule.date.getMonth() + 1
+        let y = schedule.date.getFullYear()
+        let H = Math.floor(hour)
+        let M = hour % 1 === 0.5 ? "30" : "00"
+        let transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_PASS
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
+        });
+        transporter.sendMail({
+          from: '"DuArte Barbershop ✂" <barbearia.duarte.iron@gmail.com>',
+          to: req.user.email,
+          subject: 'DuArte Barbershop Booking Confirmed for ',
+          html: `Your booking on ${d}/${m}/${y} at ${H}:${M} was confirmed. Contact us if you wish to change/cancel. Please don't reply this email. Could be a virus to your hair :(`,
+        })
         desiredBooking._customer = req.user._id
       }
-      
       else {
         throw new Error("It's not possible to book at " + hour)
       }
@@ -74,7 +95,8 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
         })
     })
     .catch(next)
-});
+ });
+
 
 // DELETE THE BOOKINGS
 router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) => {
