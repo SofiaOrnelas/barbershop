@@ -33,7 +33,7 @@ export default class Login extends Component {
       <div className="Login">
         <h2>Login</h2>
         <form>
-          email: <input type="text" value={this.state.email} name="email" onChange={this.handleInputChange} /> <br />
+          Email: <input type="text" value={this.state.email} name="email" onChange={this.handleInputChange} /> <br />
           Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} /> <br />
           <button onClick={(e) => this.handleClick(e)}>Login</button>
         </form>

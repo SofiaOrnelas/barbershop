@@ -17,7 +17,6 @@ export default class Home extends Component {
     return (
       
           <div>
-
             <Calendar/>      
             <Staff/>
             <SliderHome/>

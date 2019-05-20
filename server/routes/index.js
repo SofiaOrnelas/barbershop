@@ -4,14 +4,22 @@ const router = express.Router();
 const Schedule = require('../models/Schedule');
 const nodemailer = require ('nodemailer');
 
-// TODO name at the signup require
-// TODO buscar o api
+
 // TODO  MANDAR EMAIL QUANDO SE CONFIRMA RESERVA TMB
 
 
 // Route to get all dates
 router.get('/schedules', (req, res, next) => {
   Schedule.find()
+    .populate("_employee")
+    .then(dates => {
+      res.json(dates);
+    })
+    .catch(err => next(err))
+});
+
+router.get('/my-schedules', isEmployee, (req, res, next) => {
+  Schedule.find({ _employee: req.user._id })
     .populate("_employee")
     .then(dates => {
       res.json(dates);
@@ -52,6 +60,7 @@ router.post('/schedules', isEmployee, (req, res, next) => {
     .catch(next)
 });
 
+
 // ADD A BOOKING TO THE SCHEDULE (REQ.USER._ID AND REQ.BODY.HOUR)
 router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
   let hour = Number(req.body.hour)
@@ -59,7 +68,28 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
     .then(schedule => {
       console.log(schedule)
       let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
-      if (desiredBooking && !desiredBooking._customer) {
+      if (desiredBooking && !desiredBooking._customer) { 
+        let d = schedule.date.getDate()
+        let m = schedule.date.getMonth() + 1
+        let y = schedule.date.getFullYear()
+        let H = Math.floor(hour)
+        let M = hour % 1 === 0.5 ? "30" : "00"
+        let transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_PASS
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
+        });
+        transporter.sendMail({
+          from: '"DuArte Barbershop ✂" <barbearia.duarte.iron@gmail.com>',
+          to: req.user.email,
+          subject: 'DuArte Barbershop Booking Confirmed for ',
+          html: `Your booking on ${d}/${m}/${y} at ${H}:${M} was confirmed. Contact us if you wish to change/cancel. Please don't reply this email. Could be a virus to your hair :(`,
+        })
         desiredBooking._customer = req.user._id
       }
       else {
@@ -74,7 +104,15 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
         })
     })
     .catch(next)
-});
+ });
+
+/*  router.get('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) => {
+  Schedule.findById(req.params.scheduleId)
+    .then(schedule => {
+      res.json(schedule)
+    })
+}); */
+
 
 // DELETE THE BOOKINGS
 router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) => {
@@ -105,7 +143,7 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
           from: '"DuArte Barbershop ✂" <barbearia.duarte.iron@gmail.com>',
           to: desiredBooking._customer.email,
           subject: 'DuArte Barbershop Booking Cancelled for ',
-          html: `Your booking on ${d}/${m}/${y} at ${H}:${M} was cancelled. We will contact you as soon as possible. Please don't reply this email`,
+          html: `Your booking on ${d}/${m}/${y} at ${H}:${M} was cancelled. We will contact you as soon as possible. Please don't reply this email. Could be a virus to your hair :(`,
         })
         desiredBooking._customer = null
       }
