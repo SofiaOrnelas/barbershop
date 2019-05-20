@@ -8,6 +8,28 @@ import  { Button } from 'reactstrap'
 // - Inside the code of the onSubmit, do: this.props.onCreate()
 
 export default class CreateSchedule extends Component {
+/*   constructor (props){
+    super(props)
+    this.state = {
+      date: '',
+      isWorkingAfternoon: true,
+      isWorkingMorning: true
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  handleChange(event) { 
+    this.setState({
+      isWorkingAfternoon: event.target.value,
+      isWorkingMorning: event.target.value
+    })
+  }
+  handleSubmit(event){
+    event.PreventDefault()
+
+    }
+
+   */
   render() {
     return (
       <form>
