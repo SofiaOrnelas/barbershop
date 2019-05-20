@@ -18,7 +18,7 @@ export default class Calendar extends Component {
   getPossibleHours() {
     return [9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5]
   }
-
+  
   getSchedulesOfTheDay() {
     return this.state.schedules.filter((schedule, i) => checkIfSameDays(schedule.date, this.state.date))
   }
@@ -33,17 +33,16 @@ export default class Calendar extends Component {
 
   increaseDate() {
     this.state.date.setDate(this.state.date.getDate() + 1);
-    this.setState({date: this.state.date})
+    this.setState({ date: this.state.date })
   }
 
   decreaseDate() {
-      this.state.date.setDate(this.state.date.getDate() - 1);
-      this.setState({date: this.state.date})
-    }
-    
+    this.state.date.setDate(this.state.date.getDate() - 1);
+    this.setState({ date: this.state.date })
+  }
+
 
   render() {
-    // let bookings = []
     return (
       <div className="Calendar">
         <h1>Schedule</h1>
@@ -57,9 +56,8 @@ export default class Calendar extends Component {
           <thead>
             <tr>
               <th></th>
-              {this.getSchedulesOfTheDay().map(schedule => <th key={schedule._id}>
-                {schedule._employee.email}
-              </th>)}
+              {this.getSchedulesOfTheDay().map(schedule =>
+                <th key={schedule._id}>{schedule._employee.name}</th>)}
             </tr>
           </thead>
           <tbody>
