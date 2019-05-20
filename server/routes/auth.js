@@ -44,11 +44,6 @@ router.post("/login", (req, res, next) => {
   User.findOne({ email })
     .then(userDoc => {
       // "userDoc" will be empty if the email is wrong (no document in database)
-    /*   if (!name) {
-        // create an error object to send to our error handler with "next()"
-        next(new Error("Please enter your name "))
-        return
-      } */
       
       if (!userDoc) {
         // create an error object to send to our error handler with "next()"
