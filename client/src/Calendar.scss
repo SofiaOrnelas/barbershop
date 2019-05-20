@@ -4,8 +4,9 @@
 
 .shedules-list{
   td {
-    vertical-align: middle;
+    justify-content: center;
     padding: 4px 12px;
+    border: 1px solid black;
   }
 
   img {
@@ -13,4 +14,9 @@
     width: 50px;
     object-fit: cover;
   }
+}
+
+.hours {
+  background-color: black;
+  color: white;
 }

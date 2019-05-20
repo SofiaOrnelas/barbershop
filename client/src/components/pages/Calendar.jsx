@@ -26,9 +26,17 @@ export default class Calendar extends Component {
   // Method that returns "Off", "Unavailable" or "Available"
   getAvailibity(schedule, hour) {
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
-    if (!bookingOfTheHour) return "Off"
-    if (!bookingOfTheHour._customer) return "Available"
-    return "Unavailable"
+    if (!bookingOfTheHour) return  <div style={{color:"red"}}>"Off"</div> 
+    if (!bookingOfTheHour._customer) return <div style={{color:"green"}}>"Available"</div>
+    return <div style={{color:"red"}}>"Unvailable"</div>
+  }
+
+  // Method that returns "Off", "Unavailable" or "Available"
+  getAvailibityOne(schedule, hour) {
+    let bookingOfTheHour = schedule.bookings.findby._id(booking => booking.hour === hour)
+    if (!bookingOfTheHour) return  <div style={{color:"red"}}>"Off"</div> 
+    if (!bookingOfTheHour._customer) return <div style={{color:"green"}}>"Available"</div>
+    return <div style={{color:"red"}}>"Unvailable"</div>
   }
 
   increaseDate() {
@@ -60,9 +68,9 @@ export default class Calendar extends Component {
                 <th key={schedule._id}>{schedule._employee.name}</th>)}
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             {this.getPossibleHours().map(hour => <tr key={hour}>
-              <td>{convertHourNumberToString(hour)}</td>
+              <td className="hours">{convertHourNumberToString(hour)}</td>
               {this.getSchedulesOfTheDay().map(schedule => <td key={schedule._id}>
                 {this.getAvailibity(schedule, hour)}
               </td>)}
