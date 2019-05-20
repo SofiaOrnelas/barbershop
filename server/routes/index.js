@@ -4,7 +4,7 @@ const router = express.Router();
 const Schedule = require('../models/Schedule');
 const nodemailer = require ('nodemailer');
 
-// TODO name at the signup require
+
 // TODO buscar o api
 // TODO  MANDAR EMAIL QUANDO SE CONFIRMA RESERVA TMB
 
