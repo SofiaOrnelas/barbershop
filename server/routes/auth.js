@@ -9,8 +9,8 @@ const bcryptSalt = 10
 
 router.post("/signup", (req, res, next) => {
   const { email, password, phone, name} = req.body
-  if (!email || !password) {
-    res.status(400).json({ message: "Indicate email and password" })
+  if (!email || !password|| !name) {
+    res.status(400).json({ message: "Indicate name, email and password" })
     return
   }
   User.findOne({ email })
@@ -38,12 +38,18 @@ router.post("/signup", (req, res, next) => {
 })
 
 router.post("/login", (req, res, next) => {
-  const { email, password } = req.body
+  const { email, password, name } = req.body
 
   // first check to see if there's a document with that email
   User.findOne({ email })
     .then(userDoc => {
       // "userDoc" will be empty if the email is wrong (no document in database)
+      if (!name) {
+        // create an error object to send to our error handler with "next()"
+        next(new Error("Please enter your name "))
+        return
+      }
+      
       if (!userDoc) {
         // create an error object to send to our error handler with "next()"
         next(new Error("Incorrect email "))
