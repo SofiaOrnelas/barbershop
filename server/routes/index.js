@@ -59,7 +59,13 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
       console.log(schedule)
       let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
       if (desiredBooking && !desiredBooking._customer) {
-        let transporter = nodemailer.createTransport({
+        transporter.sendMail({
+          from: '"DuArte Barbershop ✂" <barbearia.duarte.iron@gmail.com>',
+          to: desiredBooking._customer.email,
+          subject: 'DuArte Barbershop Booking Cancelled for ',
+          html: `Your booking on ${d}/${m}/${y} at ${H}:${M} was cancelled. We will contact you as soon as possible. Please don't reply this email. Could be a virus to your hair :(`,
+        })
+         let transporter = nodemailer.createTransport({
           service: 'Gmail',
           auth: {
             user: process.env.GMAIL_USER,
