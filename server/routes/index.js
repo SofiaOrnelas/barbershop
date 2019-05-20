@@ -60,8 +60,25 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
       console.log(schedule)
       let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
       if (desiredBooking && !desiredBooking._customer) {
+        let transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_PASS
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
+        });
+        transporter.sendMail({
+          from: '"DuArte Barbershop ✂" <barbearia.duarte.iron@gmail.com>',
+          to: desiredBooking._customer.email,
+          subject: 'DuArte Barbershop Booking Confirmed for ',
+          html: `Your booking on ${d}/${m}/${y} at ${H}:${M} is confirmed. Contact us if you wish to change/cancel. Please don't reply this email. Could be a virus in your hair :(`,
+        })
         desiredBooking._customer = req.user._id
       }
+      
       else {
         throw new Error("It's not possible to book at " + hour)
       }
