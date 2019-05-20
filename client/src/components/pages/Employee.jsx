@@ -31,8 +31,10 @@ export default class Employee extends Component {
     return "Unavailable"
   }
 
-/*   getEmployeeScheduleById(schedule, employee) {
-    let employeeSchedule = schedule.bookings.findbyId(employee => employee_id === employee)
+/*   getAvailibityById(schedule, hour) {
+    let bookingOfTheHour = schedule.bookings.findbyId(booking => booking.hour === hour)
+    if (!bookingOfTheHour) return "Off"
+    if (!bookingOfTheHour._customer) return "Available"
     return "Unavailable"
   } */
 
