@@ -41,7 +41,10 @@ export default class NavBar extends Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink tag={NLink} to="/staff">Staff</NavLink>
+              <NavLink tag={NLink} to="/user">User</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={NLink} to="/employee">Employee</NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag={NLink} to="/gallery">Gallery</NavLink>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Secret from './pages/Secret';
+import User from './pages/User';
+import Employee from './pages/Employee'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
@@ -49,6 +51,8 @@ export default class App extends Component {
       
         <Switch className="switch">
           <Route path="/" exact component={Home} />
+          <Route path="/user" exact component={User} />
+          <Route path="/employee" exact component={Employee}/>
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/secret" component={Secret} />
