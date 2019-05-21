@@ -1,39 +1,44 @@
-import React, { Component } from 'react'
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
-// class GoogleMap extends Component {
-//   componentDidMount() {
-//     const map = new window.google.maps.Map(document.getElementById('map'), {
-//       center: { lat: 41.0082, lng: 28.9784 },
-//       zoom: 8
-//     });
-//   }
-
-//   render() {
-//     return (
-//       <div style={{ width: 300, height: 300 }} id="map" />
-//     );
-//   }
-// }
-
-// export default GoogleMap
-
+import React, { Component } from 'react';
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 
 class GoogleMap extends Component {
+  constructor(props) {
+    super(props)
+    this.mapRef = React.createRef()
+    this.map = null
+    this.marker = null
+  }
+  initMap() {
+    // Embed the map where "this.mapRef" is defined in the render
+    this.map = new mapboxgl.Map({
+      container: this.mapRef.current,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-9.223362, 38.756331], // Barbearia Duarte lng,lat
+      zoom: 14
+    })
+    
+
+    // Add zoom control on the top right corner
+    this.map.addControl(new mapboxgl.NavigationControl())
+
+    // Marker on the map in Barbearia ([-9.223362, 38.756331])
+    this.marker = new mapboxgl.Marker({ color: 'red' })
+      .setLngLat([-9.223362, 38.756331])
+      .addTo(this.map)
+  }
   render() {
     return (
       <div className="mainContacts-map-MAP">
-       <Map google={this.props.google} zoom={10}>
-          <Marker onClick={this.onMarkerClick}
-                  name={'Current location'} />
-          <InfoWindow onClose={this.onInfoWindowClose}>      
-          </InfoWindow>
-      </Map>
-        
+        {/* The map will be injected here. */}
+        <div ref={this.mapRef}></div>
       </div>
     )
   }
+  componentDidMount() {
+    this.initMap()
+  }
 }
-export default GoogleApiWrapper({
-  apiKey: ('AIzaSyD-Bi8gB7TrG8ERZIxKDTCrllaibgRomLg')
-})(GoogleMap)
+
+export default GoogleMap
+
+// LINK PARA GOOGLE_MAPS DUARTE: https://goo.gl/maps/8QrGYraLyHaTMsPw9

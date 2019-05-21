@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Calendar from './Calendar';
-import Staff from './Staff'
+import StaffHome from './StaffHome'
 import SliderHome from './SliderHome'
 import Contacts from './Contacts';
-
-
-
 
 export default class Home extends Component {
   // constructor(props) {
@@ -18,21 +15,11 @@ export default class Home extends Component {
       
           <div>
             <Calendar/>      
-            <Staff/>
+            <StaffHome/>
             <SliderHome/>
-            {/* <div className="sliderHome">
-               <p>Slider</p>
-             </div> */}
-             <Contacts/>
+            <Contacts/>
             
-          </div>      
-      // <div className="sliderHome">
-      //   <p>Slider</p>
-      // </div>
-      // <div className="contacts">
-      //   <p>Contactos</p>
-      // </div>
-    
+          </div>    
     );
   }
 }

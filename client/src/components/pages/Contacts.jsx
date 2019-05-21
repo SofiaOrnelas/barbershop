@@ -18,7 +18,6 @@ export default class Contacts extends Component {
 
       <div className="mainContacts-map">
           <GoogleMap/>
-        <p>mapa</p>
       </div>
        
     </div>

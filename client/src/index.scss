@@ -30,6 +30,15 @@ body {
   // min-height: 100vh;
 }
 
+h4{
+  font-size: 20px;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 16px;
+  }
+
 .info {
   margin: 20px;
   padding: 10px 20px;
@@ -61,7 +70,7 @@ body {
     a {
       color: rgb(255, 255, 255);
       padding: 0 5px;
-      text-decoration: unset;
+      
     }
 
     a.active {
@@ -126,7 +135,7 @@ body {
   // flex-direction: column;
   min-height: 8vh;
   }
-// FOOTER ------------
+// FOOTER ---------------------------------------------------------------
   .footer1{
     width: 100%;
     background-color: black;
@@ -147,13 +156,8 @@ body {
       margin: 10px;
     }
     
-    .staff{
-      height: 350px;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-    }
-    //   CONTACTS   ----------------
+    
+    //   CONTACTS   ---------------------------------------------------------------
     .mainContacts{
       display: flex;
       flex-direction: row;
@@ -178,7 +182,7 @@ body {
       height: 85%;
       width: 55%;
       margin: auto;
-      background-color: rgba(101, 221, 21, 0.577);
+    
     }
 
     .mainContacts-map-MAP{
@@ -192,12 +196,6 @@ body {
       padding: 0;
     }
 
-    // .contact p{
-    //   font-size: 60px;
-    //   line-height: 20px;
-    // }
-
-
     .calendar{
       height: 500px;
       width: 100%;
@@ -206,16 +204,93 @@ body {
       background-color: black;
     }
 
-    h4{
-      font-size: 20px;
-      font-weight: 300;
+    .mapbox{
+      width: 100%;
+      height: 100%;
     }
 
-    h5 {
-      font-size: 16px;
-      }
+    //STAFF_PAGE ---------------------------------------------------------------
+    .BarberStaff{
+      width: 100%;
+      min-height: 300px;
+      margin: auto;
+      border: 1px solid black;
+      background-color: #629c7d;
+    }
 
-
-    // main{
-    //   flex-grow: -1;
+//DIV STAFF ----- APAGAR
+    // .staff{
+    //   height: 350px;
+    //   width: 100%;
+    //   height: 100%;
+    //   margin: 0;
+    //   background-size: cover;
+    //   background-position: center;
+    //   align-items: center;
+    //   // background-image: url("/staff.jpg");
     // }
+
+    // .staff p{
+    //   display: flex;
+    //   text-align: center;
+    //   font-family: 'Oswald', sans-serif;
+    //   font-size: 44px;
+    //   color: rgb(25, 189, 33);
+    //   text-shadow: 0.5px 0.5px #b19707;
+    //   text-decoration: unset;
+    // }
+
+    // .Staff-button {
+    //   height: 350px;
+    //   width: 100%;
+    //   height: 100%;
+    //   margin: 0;
+
+    //   // background-image: url("/staff.jpg");
+    //   // background-size: cover;
+    //   // background-position: center;
+    //   // color: white;
+    //   // text-shadow: 1px 1px 3px rgba(0,0,0,.6);
+    //   // text-decoration: none;
+    //   // display: flex;
+    //   // justify-content: center;
+    //   // align-items: center;
+    //   // height: 100px;
+    //   // margin: 10px 0;
+    //   // font-size: 20px;
+    // }
+    
+    // .Staff-button-home{
+    //   background-image: url("/staff.jpg");
+    // }
+   
+    // .Staff-button-home{
+    //   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/staff.jpg");
+    // }
+
+//STAFF_HOME ---------------------------------------------------------------
+  .staff-button { 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-shadow: 2px 2px 1px rgba(44, 34, 0, 0.596);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    font-size: 40px;
+  }
+  .staff-button-home{
+    background-image: url("/staff.jpg");
+    }
+
+   //MAPBOX ---------------------------------------------------------------
+  .mapboxgl-map {
+    text-align: left;
+    height: 100%;
+    width: 100%;
+    border: 5px solid whitesmoke;
+    border-radius: 10px;
+    box-shadow: 1.5px 10px 20px 0px rgba(46,38,46,0.5);
+  }

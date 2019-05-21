@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import StaffPage from './pages/StaffPage'
 
 // Link, NavLink,
 // import api from '../api';
@@ -56,6 +57,7 @@ export default class App extends Component {
           <Route path="/employee" exact component={Employee}/>
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/StaffPage.jsx" component={StaffPage} />
           <Route path="/secret" component={Secret} />
           <Route render={() => <h2>404</h2>} />
         </Switch>
