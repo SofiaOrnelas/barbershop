@@ -119,3 +119,5 @@ export default {
       .catch(errHandler)
     },
 }
+
+//TODO - create a new method to get the user's profile

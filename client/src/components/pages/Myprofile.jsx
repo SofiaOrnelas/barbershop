@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 
+//TODO1 - Finish MyProfile
+//TODO2 - Add a new component for /profile/:userId 
 export default class Myprofile extends Component {
   constructor(props){
     super(props);
     this.state = {
-/*         name: this.state.name, 
-        phone: this.state.phone,
-        email: this.state.email, 
-        bookings: this.state.bookings, */
+
     }
   }
   render() {

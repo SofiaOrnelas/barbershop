@@ -162,4 +162,34 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
 });
 
 
+// TODO1
+
+/* //GET /api/users/:id
+router.get('/api/users/:id', isEmployee, isLoggedIn, (req, res, next) => {
+    User.findById({ _customer: req.user._id })
+      .then(customer => {
+        res.json(customer);
+      })
+      .catch(err => next(err))
+  });
+
+// TODO2
+
+//GET /api/my-profile
+
+router.get('/api/my-profile/', isLoggedIn, (req, res, next) => {
+  User.find()
+  .then (myprofile => {
+    res.json(myprofile);
+  })
+})
+
+// TODO3
+
+//PUT /api/my-profile 
+
+router.put('/api/my-profile', isLoggedIn, (req, res, next) => {
+
+}) */
+
 module.exports = router;
