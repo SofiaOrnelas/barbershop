@@ -10,7 +10,7 @@ export default class StaffHome extends Component {
   render() {                
     return (
         <div>
-          <Link to="./StaffPage.jsx" className="staff-button staff-button-home">Meet Our Staff !</Link>
+          <Link to="./StaffPage" className="staff-button staff-button-home">Meet Our Staff !</Link>
         </div>
 
       //  <div className="staff">

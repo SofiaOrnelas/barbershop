@@ -4,7 +4,7 @@ import GoogleMap from './GoogleMap';
 export default class Contacts extends Component {
   render() {
     return (
-    <div className="mainContacts">
+    <div className="mainContacts" id="scroll">
       <div className="mainContacts-txt">
         <p className="contact"><h4>Morada:</h4>
           <h5>Rua Maria Alda Barbosa Nogueira n.4B, Amadora</h5></p>

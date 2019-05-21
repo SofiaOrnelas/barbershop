@@ -162,20 +162,32 @@ h5 {
       display: flex;
       flex-direction: row;
       // align-content: center;
-      height: 350px;
+      height: 400px;
       width: 100%;
-      background-color: rgba(206, 150, 7, 0.577);
+      background-color: rgba(255, 255, 255, 0.577);
     }
 
     .mainContacts-txt{
+      font-family: 'Oswald', sans-serif;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
       height: 85%;
       width: 35%;
       margin: auto;
-      background-color: rgba(48, 185, 226, 0.577);
+      // background-color: rgba(48, 185, 226, 0.577);
     }
+
+    .mainContacts-txt h5{
+      font-size: 18px;
+      }
+
+      .mainContacts-txt h4{
+        font-size: 24px;
+        font-weight: 300;
+        }
+
 
     .mainContacts-map{
       display: flex;
@@ -210,12 +222,12 @@ h5 {
     }
 
     //STAFF_PAGE ---------------------------------------------------------------
-    .BarberStaff{
+    .Barber-Staff-Div{
       width: 100%;
-      min-height: 300px;
+      min-height: 400px;
       margin: auto;
-      border: 1px solid black;
-      background-color: #629c7d;
+      border: 2px solid black;
+      background-color: #9688d4;
     }
 
 //DIV STAFF ----- APAGAR
@@ -259,7 +271,6 @@ h5 {
     //   // margin: 10px 0;
     //   // font-size: 20px;
     // }
-<<<<<<< HEAD
     
     // .Staff-button-home{
     //   background-image: url("/staff.jpg");
@@ -274,7 +285,7 @@ h5 {
     background-size: cover;
     background-position: center;
     color: white;
-    text-shadow: 2px 2px 1px rgba(44, 34, 0, 0.596);
+    // text-shadow: 2px 2px 1px rgba(44, 34, 0, 0.596);
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -286,6 +297,18 @@ h5 {
     background-image: url("/staff.jpg");
     }
 
+    a.staff-button.staff-button-home{
+      transition: 2s;
+    }
+      
+    a.staff-button.staff-button-home:hover  {
+      color:rgb(236, 236, 207) !important;
+      font-size: 43px;
+      text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.596);
+      text-decoration: none;
+    }
+
+  
    //MAPBOX ---------------------------------------------------------------
   .mapboxgl-map {
     text-align: left;
@@ -295,10 +318,8 @@ h5 {
     border-radius: 10px;
     box-shadow: 1.5px 10px 20px 0px rgba(46,38,46,0.5);
   }
-=======
 
 //Cor de dias passados
 .disabled {
   background-color: rgba(0,0,0,0.3);
 }
->>>>>>> ce79ab7153179b59e5c41641897f2c2c25499031

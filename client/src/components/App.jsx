@@ -55,9 +55,11 @@ export default class App extends Component {
           <Route path="/employee" exact component={Employee}/>
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
-          <Route path="/StaffPage.jsx" component={StaffPage} />
+          <Route path="/StaffPage" component={StaffPage} />
           <Route path="/secret" component={Secret} />
+          <Route path="/:contacts" component={Home} />
           <Route render={() => <h2>404</h2>} />
+
         </Switch>
         
         
