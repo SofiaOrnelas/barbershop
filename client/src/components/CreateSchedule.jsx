@@ -8,12 +8,47 @@ import  { Button } from 'reactstrap'
 // - Inside the code of the onSubmit, do: this.props.onCreate()
 
 export default class CreateSchedule extends Component {
+   constructor (props){
+    super(props)
+    this.state = {
+      date: '',
+      isWorkingAfternoon: true,
+      isWorkingMorning: true
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  handleChange(event) { 
+    const {name, value, type, checked} =event.target
+    type === 'checkbox' ? 
+    this.setState({[name] : checked}) : this.setState({[name] : value})
+  }
+  handleSubmit(event){
+    event.PreventDefault()
+    //this.props.date
+    }
+  
+/*   OnCreate(){
+    let newSchedule = this.state.schedule
+  } */
+
+  
   render() {
     return (
-      <form>
-        Morning: <input type="checkbox" name="isWorkingMorning" /> <br/>
-        Afternoon: <input type="checkbox" name="isWorkingAfternoon" /><br/>
-        <Button>Add Schedule</Button>
+      <form onSubmit={this.handleSubmit}>
+      Morning: 
+      <input 
+        type="checkbox" 
+        name="isWorkingMorning"
+        checked={this.state.isWorkingMorning} 
+        onChange={this.handleChange} /> <br/>
+      Afternoon: 
+      <input 
+        type="checkbox" 
+        name="isWorkingAfternoon"
+        checked={this.state.isWorkingAfternoon} 
+        onChange={this.handleChange}/><br/>
+      <Button onSubmit={this.props.OnCreate}>Add Schedule</Button>
       </form>
     )
   }
