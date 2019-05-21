@@ -7,13 +7,10 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
 import Footer from './Footer';
-<<<<<<< HEAD
 import StaffPage from './pages/StaffPage'
-=======
 import api from '../api';
 
 window.api = api
->>>>>>> e1ddee086b698816684d25e74da4239f933d6321
 
 // Link, NavLink,
  
