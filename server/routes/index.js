@@ -5,7 +5,6 @@ const Schedule = require('../models/Schedule');
 const nodemailer = require ('nodemailer');
 
 
-// TODO  MANDAR EMAIL QUANDO SE CONFIRMA RESERVA TMB
 
 
 // Route to get all dates
@@ -110,13 +109,6 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
       
     })
  });
-
-/*  router.get('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) => {
-  Schedule.findById(req.params.scheduleId)
-    .then(schedule => {
-      res.json(schedule)
-    })
-}); */
 
 
 // DELETE THE BOOKINGS

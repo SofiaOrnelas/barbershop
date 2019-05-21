@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import  { Button } from 'reactstrap'
+import api from '../api';
+
 
 // TODO:
 // - Create 2 states: isWorkingMorning and isWorkingAfternoon, initially to true
@@ -24,13 +26,17 @@ export default class CreateSchedule extends Component {
     this.setState({[name] : checked}) : this.setState({[name] : value})
   }
   handleSubmit(event){
-    event.PreventDefault()
-    //this.props.date
-    }
-  
-/*   OnCreate(){
-    let newSchedule = this.state.schedule
-  } */
+    event.preventDefault()
+    api.createSchedule({
+      date: this.props.date,
+      isWorkingMorning: this.state.isWorkingMorning,
+      isWorkingAfternoon: this.state.isWorkingAfternoon
+    })
+    .then(() => {
+      this.props.onCreate()
+    })
+  }
+
 
   
   render() {
@@ -48,8 +54,10 @@ export default class CreateSchedule extends Component {
         name="isWorkingAfternoon"
         checked={this.state.isWorkingAfternoon} 
         onChange={this.handleChange}/><br/>
-      <Button onSubmit={this.props.OnCreate}>Add Schedule</Button>
+      <Button>Add Schedule</Button>
       </form>
     )
   }
 }
+
+

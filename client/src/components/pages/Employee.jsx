@@ -7,10 +7,12 @@ import CreateSchedule from "../CreateSchedule"
 export default class Employee extends Component {
   constructor(props) {
     super(props)
+    let firstDateOfCurrentWeek = new Date() // The value is the current date
+    firstDateOfCurrentWeek.setDate(firstDateOfCurrentWeek.getDate() - firstDateOfCurrentWeek.getDay() +1)
     this.state = {
       schedules: null,
       bookings: [],
-      date: new Date()
+      date: firstDateOfCurrentWeek
     }
     this.increaseDate = this.increaseDate.bind(this)
     this.decreaseDate = this.decreaseDate.bind(this)
@@ -46,13 +48,6 @@ export default class Employee extends Component {
     return "Unavailable"
   }
 
-  /*   getAvailibityById(schedule, hour) {
-      let bookingOfTheHour = schedule.bookings.findbyId(booking => booking.hour === hour)
-      if (!bookingOfTheHour) return "Off"
-      if (!bookingOfTheHour._customer) return "Available"
-      return "Unavailable"
-    } */
-
 
   increaseDate() {
     this.state.date.setDate(this.state.date.getDate() + 7);
@@ -65,14 +60,16 @@ export default class Employee extends Component {
   }
 
   getTableData(i, date, hour) {
+    let className = ""
+    if (true) className += "disabled" // TODO: change the condition
     if (!this.getScheduleOfTheDate(date)) {
       if (i === 0)
-        return <td rowSpan={this.getPossibleHours().length}>
+        return <td className={className} rowSpan={this.getPossibleHours().length}>
           <CreateSchedule date={date} onCreate={() => this.callTheApiToGetSchedulesOfConnectedEmployee()} />
         </td>
     }
     else {
-      return <td key={date}>
+      return <td className={className} key={date}>
         {this.getAvailibity(this.getScheduleOfTheDate(date), hour)}
       </td>
     }
