@@ -7,9 +7,11 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import api from '../api';
+
+window.api = api
 
 // Link, NavLink,
-// import api from '../api';
  
 export default class App extends Component {
   constructor(props) {
