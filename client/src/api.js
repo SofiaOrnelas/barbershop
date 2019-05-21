@@ -97,4 +97,11 @@ export default {
     .then(res => res.data)
     .catch(errHandler)
   },
+
+  createSchedule(body) {
+    return service
+      .post('/schedules', body)
+      .then(res => res.data)
+      .catch(errHandler)
+    },
 }

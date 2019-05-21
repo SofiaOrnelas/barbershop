@@ -5,7 +5,6 @@ const Schedule = require('../models/Schedule');
 const nodemailer = require ('nodemailer');
 
 
-// TODO  MANDAR EMAIL QUANDO SE CONFIRMA RESERVA TMB
 
 
 // Route to get all dates
