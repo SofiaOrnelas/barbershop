@@ -7,11 +7,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
 import Footer from './Footer';
-<<<<<<< HEAD
 import Myprofile from './pages/Myprofile';
-=======
 import StaffPage from './pages/StaffPage'
->>>>>>> 104e79eacebe7bd83c0a8f9e9a411ba586e22dbb
 import api from '../api';
 
 window.api = api
