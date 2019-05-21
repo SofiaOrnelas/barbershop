@@ -31,10 +31,6 @@ export default class Employee extends Component {
     return result
   }
 
-  // TODO cancel(){
-
-  // }
-
   getSchedulesOfTheWeek() {
     return this.state.schedules.filter((schedule, i) => checkIfSameWeeks(schedule.date, this.state.date))
   }
