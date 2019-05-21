@@ -84,6 +84,14 @@ export default {
       .catch(errHandler)
   },
 
+
+  reserve(_id, x) {
+    return service
+    .post(`/schedules/${_id}/bookings`, {hour: x})
+    .then(res => res.data)
+    .catch(errHandler)
+  },
+
   getSchedules() {
   return service
     .get('/schedules')

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from '../../api';
 import { convertHourNumberToString, getReadableDate, checkIfSameDays } from "../../utils";
 import { Button } from "reactstrap";
+// import { REPLServer } from 'repl';
 
 export default class Calendar extends Component {
   constructor(props) {
@@ -18,16 +19,29 @@ export default class Calendar extends Component {
   getPossibleHours() {
     return [9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5]
   }
-  
   getSchedulesOfTheDay() {
-    return this.state.schedules.filter((schedule, i) => checkIfSameDays(schedule.date, this.state.date))
+    return this.state.schedules.filter((schedule, i) => checkIfSameDays(schedule.date, this.state.date)) 
+  }
+// TODO fazer isto no backend
+  reserve(_id, hour) {
+    api.reserve(_id, hour)
+    .then(() => {
+      api.getSchedules()
+      .then(schedules => {
+        console.log(schedules)
+        this.setState({
+          schedules: schedules
+        })
+      })
+    })
+    .catch(err => console.log(err.toString()))
   }
 
   // Method that returns "Off", "Unavailable" or "Available"
   getAvailibity(schedule, hour) {
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
     if (!bookingOfTheHour) return  <div style={{color:"red"}}>"Off"</div> 
-    if (!bookingOfTheHour._customer) return <div style={{color:"green"}}>"Available"</div>
+    if (!bookingOfTheHour._customer) return <Button onClick={() => this.reserve(schedule._id, hour)}><div style={{color:"green"}}>"Reserve"</div></Button>
     return <div style={{color:"red"}}>"Unvailable"</div>
   }
 
@@ -35,6 +49,7 @@ export default class Calendar extends Component {
   getAvailibityOne(schedule, hour) {
     let bookingOfTheHour = schedule.bookings.findby._id(booking => booking.hour === hour)
     if (!bookingOfTheHour) return  <div style={{color:"red"}}>"Off"</div> 
+    
     if (!bookingOfTheHour._customer) return <div style={{color:"green"}}>"Available"</div>
     return <div style={{color:"red"}}>"Unvailable"</div>
   }
@@ -71,7 +86,7 @@ export default class Calendar extends Component {
           </thead>
           <tbody >
             {this.getPossibleHours().map(hour => <tr key={hour}>
-              <td className="hours">{convertHourNumberToString(hour)}</td>
+              <td  className="hours">{convertHourNumberToString(hour)}</td>
               {this.getSchedulesOfTheDay().map(schedule => <td key={schedule._id}>
                 {this.getAvailibity(schedule, hour)}
               </td>)}
