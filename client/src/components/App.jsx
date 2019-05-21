@@ -7,7 +7,11 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
 import Footer from './Footer';
+<<<<<<< HEAD
 import Myprofile from './pages/Myprofile';
+=======
+import StaffPage from './pages/StaffPage'
+>>>>>>> 104e79eacebe7bd83c0a8f9e9a411ba586e22dbb
 import api from '../api';
 
 window.api = api
@@ -50,6 +54,7 @@ export default class App extends Component {
         <NavBar/>
         {/* <Calendar/> */}
         
+        
       
         <Switch className="switch">
           <Route path="/" exact component={Home} />
@@ -57,8 +62,11 @@ export default class App extends Component {
           <Route path="/employee" exact component={Employee}/>
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/StaffPage" component={StaffPage} />
           <Route path="/secret" component={Secret} />
+          <Route path="/:contacts" component={Home} />
           <Route render={() => <h2>404</h2>} />
+
         </Switch>
         
         

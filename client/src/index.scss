@@ -8,6 +8,7 @@ $primary: black;
 // 1) Run in the client folder: $ npm i bootstrap
 // 2) Import bootstrap with the following line
  @import '../node_modules/bootstrap/scss/bootstrap.scss';
+
 // 
 // To install Reactstrap:
 // 1) Run in the client folder: $ npm i reactstrap
@@ -28,6 +29,15 @@ body {
   // flex-direction: column;
   // min-height: 100vh;
 }
+
+h4{
+  font-size: 20px;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 16px;
+  }
 
 .info {
   margin: 20px;
@@ -57,11 +67,10 @@ body {
   .App-header {
     background-color: $primary;
     
-
     a {
       color: rgb(255, 255, 255);
       padding: 0 5px;
-      text-decoration: unset;
+      
     }
 
     a.active {
@@ -75,8 +84,8 @@ body {
   }
 
   .App-title {
-    height:90px;
-    width:90px;
+    max-height:70px;
+    max-width:70px;
     text-align: left;
   }
 
@@ -124,46 +133,79 @@ body {
   background-color: black !important;
   display: flex;
   // flex-direction: column;
-  min-height: 10vh;
+  min-height: 8vh;
   }
-
+// FOOTER ---------------------------------------------------------------
   .footer1{
     width: 100%;
     background-color: black;
     display: flex;
     flex-direction: column;
-    min-height: 10vh;
+    min-height: 10px;
     margin-top: auto;
   }
 
   .icons{
     display: flex;
     justify-content: center;
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
   }
 
     .icons img {
       margin: 10px;
     }
     
-    .staff{
-      height: 350px;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-    }
-
-    .contacts{
-      height: 300px;
-      width: 100%;
-      background-color: rgba(206, 150, 7, 0.577);
-    }
-
-    .sliderHome{
+    
+    //   CONTACTS   ---------------------------------------------------------------
+    .mainContacts{
+      display: flex;
+      flex-direction: row;
+      // align-content: center;
       height: 400px;
       width: 100%;
-      background-color: rgb(25, 202, 158);
+      background-color: rgba(255, 255, 255, 0.577);
+    }
+
+    .mainContacts-txt{
+      font-family: 'Oswald', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 85%;
+      width: 35%;
+      margin: auto;
+      // background-color: rgba(48, 185, 226, 0.577);
+    }
+
+    .mainContacts-txt h5{
+      font-size: 18px;
+      }
+
+      .mainContacts-txt h4{
+        font-size: 24px;
+        font-weight: 300;
+        }
+
+
+    .mainContacts-map{
+      display: flex;
+      height: 85%;
+      width: 55%;
+      margin: auto;
+    
+    }
+
+    .mainContacts-map-MAP{
+      height: 100%;
+      width: 100%;
+    }
+
+    .mainContacts ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
     }
 
     .calendar{
@@ -173,9 +215,109 @@ body {
       margin: 0;
       background-color: black;
     }
-    // main{
-    //   flex-grow: -1;
+
+    .mapbox{
+      width: 100%;
+      height: 100%;
+    }
+
+    //STAFF_PAGE ---------------------------------------------------------------
+    .Barber-Staff-Div{
+      width: 100%;
+      min-height: 400px;
+      margin: auto;
+      border: 2px solid black;
+      background-color: #9688d4;
+    }
+
+//DIV STAFF ----- APAGAR
+    // .staff{
+    //   height: 350px;
+    //   width: 100%;
+    //   height: 100%;
+    //   margin: 0;
+    //   background-size: cover;
+    //   background-position: center;
+    //   align-items: center;
+    //   // background-image: url("/staff.jpg");
     // }
+
+    // .staff p{
+    //   display: flex;
+    //   text-align: center;
+    //   font-family: 'Oswald', sans-serif;
+    //   font-size: 44px;
+    //   color: rgb(25, 189, 33);
+    //   text-shadow: 0.5px 0.5px #b19707;
+    //   text-decoration: unset;
+    // }
+
+    // .Staff-button {
+    //   height: 350px;
+    //   width: 100%;
+    //   height: 100%;
+    //   margin: 0;
+
+    //   // background-image: url("/staff.jpg");
+    //   // background-size: cover;
+    //   // background-position: center;
+    //   // color: white;
+    //   // text-shadow: 1px 1px 3px rgba(0,0,0,.6);
+    //   // text-decoration: none;
+    //   // display: flex;
+    //   // justify-content: center;
+    //   // align-items: center;
+    //   // height: 100px;
+    //   // margin: 10px 0;
+    //   // font-size: 20px;
+    // }
+    
+    // .Staff-button-home{
+    //   background-image: url("/staff.jpg");
+    // }
+   
+    // .Staff-button-home{
+    //   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/staff.jpg");
+    // }
+
+//STAFF_HOME ---------------------------------------------------------------
+  .staff-button { 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    // text-shadow: 2px 2px 1px rgba(44, 34, 0, 0.596);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    font-size: 40px;
+  }
+  .staff-button-home{
+    background-image: url("/staff.jpg");
+    }
+
+    a.staff-button.staff-button-home{
+      transition: 2s;
+    }
+      
+    a.staff-button.staff-button-home:hover  {
+      color:rgb(236, 236, 207) !important;
+      font-size: 43px;
+      text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.596);
+      text-decoration: none;
+    }
+
+  
+   //MAPBOX ---------------------------------------------------------------
+  .mapboxgl-map {
+    text-align: left;
+    height: 100%;
+    width: 100%;
+    border: 5px solid whitesmoke;
+    border-radius: 10px;
+    box-shadow: 1.5px 10px 20px 0px rgba(46,38,46,0.5);
+  }
 
 //Cor de dias passados
 .disabled {

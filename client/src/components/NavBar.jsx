@@ -49,7 +49,7 @@ export default class NavBar extends Component {
               <NavLink tag={NLink} to="/employee">Employee</NavLink>
             </NavItem>}
             <NavItem>
-              <NavLink tag={NLink} to="/gallery">Gallery</NavLink>
+              <NavLink tag={NLink} to="/StaffPage">Staff</NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag={NLink} to="/contacts">Contacts</NavLink>
