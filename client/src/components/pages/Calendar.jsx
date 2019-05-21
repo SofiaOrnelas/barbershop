@@ -22,7 +22,7 @@ export default class Calendar extends Component {
   getSchedulesOfTheDay() {
     return this.state.schedules.filter((schedule, i) => checkIfSameDays(schedule.date, this.state.date)) 
   }
-// TODO fazer isto no backend
+
   reserve(_id, hour) {
     api.reserve(_id, hour)
     .then(() => {
@@ -40,18 +40,10 @@ export default class Calendar extends Component {
   // Method that returns "Off", "Unavailable" or "Available"
   getAvailibity(schedule, hour) {
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
-    if (!bookingOfTheHour) return  <div style={{color:"red"}}>"Off"</div> 
-    if (!bookingOfTheHour._customer) return <Button onClick={() => this.reserve(schedule._id, hour)}><div style={{color:"green"}}>"Reserve"</div></Button>
-    return <div style={{color:"red"}}>"Unvailable"</div>
-  }
-
-  // Method that returns "Off", "Unavailable" or "Available"
-  getAvailibityOne(schedule, hour) {
-    let bookingOfTheHour = schedule.bookings.findby._id(booking => booking.hour === hour)
-    if (!bookingOfTheHour) return  <div style={{color:"red"}}>"Off"</div> 
-    
-    if (!bookingOfTheHour._customer) return <div style={{color:"green"}}>"Available"</div>
-    return <div style={{color:"red"}}>"Unvailable"</div>
+    if (!bookingOfTheHour) return  <div style={{color:"red"}}>Off</div> 
+    if (!bookingOfTheHour._customer) return <Button onClick={() => this.reserve(schedule._id, hour)}><div style={{color:"green"}}>Reserve</div></Button>
+    if (api.isLoggedIn() && bookingOfTheHour._customer._id === api.getLocalStorageUser()._id) return bookingOfTheHour._customer.name
+    return <div style={{color:"red"}}>Unvailable</div>
   }
 
   increaseDate() {
@@ -101,7 +93,6 @@ export default class Calendar extends Component {
     console.log(this.state.date)
     api.getSchedules()
       .then(schedules => {
-        console.log(schedules)
         this.setState({
           schedules: schedules
         })
