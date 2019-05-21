@@ -79,7 +79,7 @@ export default class Employee extends Component {
 
   getTableData(i, date, hour) {
     let className = ""
-    if (true) className += "disabled"
+    if (date < this.state.date) className += "disabled" // TODO: change the condition
     if (!this.getScheduleOfTheDate(date)) {
       if (i === 0)
         return <td className={className} rowSpan={this.getPossibleHours().length}>
