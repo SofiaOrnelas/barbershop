@@ -31,6 +31,10 @@ export default class Employee extends Component {
     return result
   }
 
+  // TODO cancel(){
+
+  // }
+
   getSchedulesOfTheWeek() {
     return this.state.schedules.filter((schedule, i) => checkIfSameWeeks(schedule.date, this.state.date))
   }
@@ -39,13 +43,31 @@ export default class Employee extends Component {
     return this.state.schedules.find((schedule, i) => checkIfSameDays(schedule.date, date))
   }
 
+  cancel(_id, hour) {
+    api.cancel(_id, hour)
+    .then(() => {
+      api.getSchedulesOfConnectedEmployee()
+      .then(schedules => {
+        console.log(schedules)
+        this.setState({
+          schedules: schedules
+        })
+      })
+    })
+    .catch(err => console.log(err.toString()))
+  }
+
   // Method that returns "Off", "Unavailable" or "Available"
   getAvailibity(schedule, hour) {
-    if (!schedule) return "Test"
+    if (!schedule) return "There is no Schedule"
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
     if (!bookingOfTheHour) return "Off"
+    if (api.isLoggedInEmployee() && bookingOfTheHour._customer/*._id???*/ === api.getLocalStorageUser()._id)
+    return <Button onClick={() => this.cancel(schedule._id, hour)}><div style={{color:"red"}}>Cancel: {bookingOfTheHour._customer.name}</div></Button>
+    
     if (!bookingOfTheHour._customer) return "Available"
-    return bookingOfTheHour._customer.name
+    return <Button onClick={() => this.cancel(schedule._id, hour)}><div style={{color:"chartreuse"}}>Cancel: {bookingOfTheHour._customer.name}</div></Button>
+    // return bookingOfTheHour._customer.name
   }
 
 
@@ -61,7 +83,7 @@ export default class Employee extends Component {
 
   getTableData(i, date, hour) {
     let className = ""
-    if (true) className += "disabled" // TODO: change the condition
+    if (true) className += "disabled"
     if (!this.getScheduleOfTheDate(date)) {
       if (i === 0)
         return <td className={className} rowSpan={this.getPossibleHours().length}>

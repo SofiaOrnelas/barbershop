@@ -84,6 +84,12 @@ export default {
       .catch(errHandler)
   },
 
+  cancel(_id, hour) {
+    return service
+    .delete(`/schedules/${_id}/bookings`, {data:{hour:hour}})
+    .then(res => res.data)
+    .catch(errHandler)
+  },  
 
   reserve(_id, x) {
     return service

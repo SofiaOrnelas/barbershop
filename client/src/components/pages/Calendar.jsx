@@ -42,7 +42,7 @@ export default class Calendar extends Component {
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
     if (!bookingOfTheHour) return  <div style={{color:"red"}}>Off</div> 
     if (!bookingOfTheHour._customer) return <Button onClick={() => this.reserve(schedule._id, hour)}><div style={{color:"green"}}>Reserve</div></Button>
-    if (api.isLoggedIn() && bookingOfTheHour._customer === api.getLocalStorageUser()._id) return <div style={{color:"green"}}>Booked</div>
+    if (api.isLoggedIn() && bookingOfTheHour._customer._id === api.getLocalStorageUser()._id) return bookingOfTheHour._customer.name
     return <div style={{color:"red"}}>Unvailable</div>
   }
 
@@ -93,7 +93,6 @@ export default class Calendar extends Component {
     console.log(this.state.date)
     api.getSchedules()
       .then(schedules => {
-        console.log(schedules)
         this.setState({
           schedules: schedules
         })
