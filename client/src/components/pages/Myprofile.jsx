@@ -4,10 +4,10 @@ export default class Myprofile extends Component {
   constructor(props){
     super(props);
     this.state = {
-        name: this.state.name, 
+/*         name: this.state.name, 
         phone: this.state.phone,
         email: this.state.email, 
-        bookings: this.state.bookings,
+        bookings: this.state.bookings, */
     }
   }
   render() {
