@@ -11,12 +11,14 @@ const nodemailer = require ('nodemailer');
 router.get('/schedules', (req, res, next) => {
   Schedule.find()
     .populate("_employee")
+    .populate("bookings._customer")
     .then(dates => {
       res.json(dates);
     })
     .catch(err => next(err))
 });
 
+// Employee schedule
 router.get('/my-schedules', isEmployee, (req, res, next) => {
   Schedule.find({ _employee: req.user._id })
     .populate("_employee")
@@ -115,12 +117,11 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
 // DELETE THE BOOKINGS
 router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) => {
   let hour = Number(req.body.hour)
+	console.log("TCL: hour", req.body)
+  
   Schedule.findById(req.params.scheduleId)
-    .populate("bookings._customer")
     .then(schedule => {
       let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
-      console.log("schedule", schedule)
-      console.log("desiredBooking", desiredBooking)
       if (desiredBooking && desiredBooking._customer) {
         let d = schedule.date.getDate()
         let m = schedule.date.getMonth() + 1
