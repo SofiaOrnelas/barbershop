@@ -46,13 +46,6 @@ export default class Employee extends Component {
     return "Unavailable"
   }
 
-  /*   getAvailibityById(schedule, hour) {
-      let bookingOfTheHour = schedule.bookings.findbyId(booking => booking.hour === hour)
-      if (!bookingOfTheHour) return "Off"
-      if (!bookingOfTheHour._customer) return "Available"
-      return "Unavailable"
-    } */
-
 
   increaseDate() {
     this.state.date.setDate(this.state.date.getDate() + 7);

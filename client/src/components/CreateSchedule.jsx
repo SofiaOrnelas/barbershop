@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import  { Button } from 'reactstrap'
 
+
 // TODO:
 // - Create 2 states: isWorkingMorning and isWorkingAfternoon, initially to true
 // - Bind the states with inputs (if the input is changed, the state is changed)
@@ -25,12 +26,13 @@ export default class CreateSchedule extends Component {
   }
   handleSubmit(event){
     event.PreventDefault()
-    //this.props.date
+    let newSchedule = {
+      date: this.props.date
     }
-  
-/*   OnCreate(){
-    let newSchedule = this.state.schedule
-  } */
+  }
+   OnCreate(){
+   // return newSchedule
+  }
 
   
   render() {
@@ -48,7 +50,7 @@ export default class CreateSchedule extends Component {
         name="isWorkingAfternoon"
         checked={this.state.isWorkingAfternoon} 
         onChange={this.handleChange}/><br/>
-      <Button onSubmit={this.props.OnCreate}>Add Schedule</Button>
+      <Button onSubmit={() => this.props.OnCreate()}>Add Schedule</Button>
       </form>
     )
   }

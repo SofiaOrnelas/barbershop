@@ -106,13 +106,6 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
     .catch(next)
  });
 
-/*  router.get('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) => {
-  Schedule.findById(req.params.scheduleId)
-    .then(schedule => {
-      res.json(schedule)
-    })
-}); */
-
 
 // DELETE THE BOOKINGS
 router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) => {
