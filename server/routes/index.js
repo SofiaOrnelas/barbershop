@@ -120,6 +120,7 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
 	console.log("TCL: hour", req.body)
   
   Schedule.findById(req.params.scheduleId)
+  .populate("bookings._customer")
     .then(schedule => {
       let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
       if (desiredBooking && desiredBooking._customer) {
