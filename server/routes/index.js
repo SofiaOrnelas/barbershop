@@ -20,6 +20,7 @@ router.get('/schedules', (req, res, next) => {
 router.get('/my-schedules', isEmployee, (req, res, next) => {
   Schedule.find({ _employee: req.user._id })
     .populate("_employee")
+    .populate("bookings._customer")
     .then(dates => {
       res.json(dates);
     })
