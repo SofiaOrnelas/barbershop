@@ -45,7 +45,7 @@ export default class Employee extends Component {
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
     if (!bookingOfTheHour) return "Off"
     if (!bookingOfTheHour._customer) return "Available"
-    return "Unavailable"
+    return bookingOfTheHour._customer.name
   }
 
 

@@ -72,7 +72,7 @@ export default class Calendar extends Component {
             <tr>
               <th></th>
               {this.getSchedulesOfTheDay().map(schedule => <th key={schedule._id}>
-                {schedule._employee.name}
+                {schedule._employee && schedule._employee.name}
               </th>)}
             </tr>
           </thead>
