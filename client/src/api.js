@@ -84,6 +84,14 @@ export default {
       .catch(errHandler)
   },
 
+
+  reserve(_id, x) {
+    return service
+    .post(`/schedules/${_id}/bookings`, {hour: x})
+    .then(res => res.data)
+    .catch(errHandler)
+  },
+
   getSchedules() {
   return service
     .get('/schedules')
@@ -97,4 +105,11 @@ export default {
     .then(res => res.data)
     .catch(errHandler)
   },
+
+  createSchedule(body) {
+    return service
+      .post('/schedules', body)
+      .then(res => res.data)
+      .catch(errHandler)
+    },
 }

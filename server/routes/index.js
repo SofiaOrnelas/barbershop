@@ -5,7 +5,6 @@ const Schedule = require('../models/Schedule');
 const nodemailer = require ('nodemailer');
 
 
-// TODO  MANDAR EMAIL QUANDO SE CONFIRMA RESERVA TMB
 
 
 // Route to get all dates
@@ -21,6 +20,7 @@ router.get('/schedules', (req, res, next) => {
 router.get('/my-schedules', isEmployee, (req, res, next) => {
   Schedule.find({ _employee: req.user._id })
     .populate("_employee")
+    .populate("bookings._customer")
     .then(dates => {
       res.json(dates);
     })
@@ -66,8 +66,14 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
   let hour = Number(req.body.hour)
   Schedule.findById(req.params.scheduleId)
     .then(schedule => {
-      console.log(schedule)
-      let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
+      reservesNumber = 1;
+      schedule.bookings.forEach(booking => {
+        if(booking._customer && booking._customer.equals(req.user._id)){
+          reservesNumber++
+        }
+      });
+      if(reservesNumber <= 3 || req.user.role == "Employee"){
+        let desiredBooking = schedule.bookings.find(booking => booking.hour == hour)
       if (desiredBooking && !desiredBooking._customer) { 
         let d = schedule.date.getDate()
         let m = schedule.date.getMonth() + 1
@@ -92,9 +98,6 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
         })
         desiredBooking._customer = req.user._id
       }
-      else {
-        throw new Error("It's not possible to book at " + hour)
-      }
       schedule.save()
         .then(() => {
           res.json({
@@ -102,16 +105,11 @@ router.post('/schedules/:scheduleId/bookings', isLoggedIn, (req, res, next) => {
             schedule
           })
         })
+        .catch(next)
+      }
+      
     })
-    .catch(next)
  });
-
-/*  router.get('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) => {
-  Schedule.findById(req.params.scheduleId)
-    .then(schedule => {
-      res.json(schedule)
-    })
-}); */
 
 
 // DELETE THE BOOKINGS
