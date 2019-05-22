@@ -211,14 +211,15 @@ router.get('/profile/:profileId', isEmployee, (req, res, next) => {
 
 //PUT /api/my-profile 
  
-router.put('/my-profile', isLoggedIn, (req, res, next) => {
-  User.findByIdAndUpdate(req.params.profileId, {
+router.put('/my-profile/', isLoggedIn, (req, res, next) => {
+  User.findByIdAndUpdate(req.params.userId, {
     name: req.body.name, 
     phone: req.body.phone, 
     email: req.body.email, 
   })
   .then (() => {
-    res.json('/my-profile/'+req.params.profileId)
+    console.log(req.params)
+    res.json('/my-profile/'+req.params.userId)
   })
 }) 
 
