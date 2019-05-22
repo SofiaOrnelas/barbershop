@@ -15,6 +15,9 @@ export default class Home extends Component {
     if(this.props.location.hash === "#contacts"){
       var elmnt = document.getElementById("scroll");
           elmnt.scrollIntoView();
+    }else{
+      var homebutton = document.getElementById("homebutton");
+          homebutton.scrollIntoView();
     }
   }
 
@@ -32,7 +35,6 @@ export default class Home extends Component {
             <StaffHome/>
             <SliderHome/>
             <Contacts/>
-            
           </div>    
     );
   }

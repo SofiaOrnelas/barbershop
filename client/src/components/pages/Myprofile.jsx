@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import api from '../../api';
-import { convertHourNumberToString, getReadableDate, checkIfSameDays } from "../../utils";
+import { convertHourNumberToString, getReadableDate, checkIfSameDays, checkIfSameWeeks } from "../../utils";
+import { Button } from "reactstrap";
 
 //TODO1 - Finish MyProfile
 //TODO2 - Add a new component for /profile/:userId 
 export default class Myprofile extends Component {
-  constructor(props) {
+  constructor(props) {  	
     super(props);
     this.state = {
       bookings: null,
@@ -35,7 +36,8 @@ export default class Myprofile extends Component {
         </div>}
         {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
 
-          Bookings: {this.state.bookings && getReadableDate(booking.date)} - {convertHourNumberToString(booking.hour)} <br />
+          Bookings: {this.state.bookings && getReadableDate(booking.date)} - {convertHourNumberToString(booking.hour)} 
+        {/* <Button onClick={() => this.cancel(schedule._id, hour)}><div style={{color:"red"}}>Cancel: {bookingOfTheHour._customer.name}</div></Button> <br /> */}
 
         </div>)}
 

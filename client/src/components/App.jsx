@@ -47,11 +47,9 @@ export default class App extends Component {
 //         </Switch>
 //       </div>
 
-   <div className="App">
+   <div id="homebutton" className="App">
         <NavBar/>
         {/* <Calendar/> */}
-        
-        
       
         <Switch className="switch">
           <Route path="/" exact component={Home} />
@@ -65,12 +63,9 @@ export default class App extends Component {
 
         </Switch>
         
-        
           <Footer />
         
       </div>
-
-
     );
   }
 }
