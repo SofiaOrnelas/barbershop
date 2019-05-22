@@ -46,7 +46,7 @@ export default class StaffPage extends Component {
       <div className="Slider-Staff">        
          <div id="carouselExampleInterval" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner-staff">
-               <div className="carousel-item active" data-interval="3000">
+               <div className="carousel-item active" data-interval="2000">
                  <img src="/SliderStaff/RAFA_SLIDER-01.png" className="d-block mw-100 mh-100" alt="slider_1.jpg"/>
                </div>
                   <div className="carousel-item" data-interval="3000">
@@ -110,7 +110,7 @@ export default class StaffPage extends Component {
       <div className="Slider-Staff">        
          <div id="carouselExampleInterval" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner-staff">
-               <div className="carousel-item active" data-interval="1000">
+               <div className="carousel-item active" data-interval="2000">
                  <img src="/SliderStaff/MARIO_SLIDER-01.png" className="d-block mw-100 mh-100" alt="slider_1.jpg"/>
                </div>
                   <div className="carousel-item" data-interval="3000">
@@ -142,7 +142,7 @@ export default class StaffPage extends Component {
       <div className="Slider-Staff">        
          <div id="carouselExampleInterval" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner-staff">
-               <div className="carousel-item active" data-interval="3000">
+               <div className="carousel-item active" data-interval="2000">
                  <img src="/SliderStaff/DU_SLIDER-01.png" className="d-block mw-100 mh-100" alt="slider_1.jpg"/>
                </div>
                   <div className="carousel-item" data-interval="2000">

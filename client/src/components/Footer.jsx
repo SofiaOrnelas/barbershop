@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export default class Footer extends Component {
   render() {
     return (
+  
     <div className="footer1">
     
       <ul className="icons">
@@ -15,6 +16,7 @@ export default class Footer extends Component {
             alt="pinterest.png"></img></a>
       </ul>
     </div>
+  
     )
   }
 }

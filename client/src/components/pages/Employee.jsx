@@ -104,12 +104,13 @@ export default class Employee extends Component {
 
   render() {
     return (
+      <div className="DivBack-Calendar-Employee">
       <div className="Calendar">
         <h1>Schedule</h1>
 
-        <Button onClick={this.decreaseDate}>Before</Button>
-        {getReadableDate(this.state.date)}
-        <Button onClick={this.increaseDate}>After</Button>
+        <Button onClick={this.decreaseDate} className="shedule-btn-Employee">Before</Button>
+        <a className="Date-Home">{getReadableDate(this.state.date)}</a>
+        <Button onClick={this.increaseDate} className="shedule-btn-Employee">After</Button>
 
         {!this.state.schedules && <div>Loading...</div>}
         {this.state.schedules && <table className="shedules-list">
@@ -132,6 +133,7 @@ export default class Employee extends Component {
           </tbody>
         </table>}
       </div>
+    </div>
     );
   }
 
