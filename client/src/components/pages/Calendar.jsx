@@ -78,7 +78,7 @@ export default class Calendar extends Component {
               </th>)}
             </tr>
           </thead>
-          <tbody >
+          <tbody>
             {this.getPossibleHours().map(hour => <tr key={hour}>
               <td  className="hours">{convertHourNumberToString(hour)}</td>
               {this.getSchedulesOfTheDay().map(schedule => <td key={schedule._id}>

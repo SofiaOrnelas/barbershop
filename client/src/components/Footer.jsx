@@ -22,6 +22,7 @@ export default class Footer extends Component {
         <NavbarToggler onClick={this.toggle} />
           <Nav className="ml-auto" navbar>
           </Nav>
+  
     <div className="footer1">
       <ul className="icons">
         <a href="https://pt-pt.facebook.com/pages/category/Hair-Salon/Barbearia-DuArte-1720241048207314/" target="blank"><img src="/facebookBr-01.png" width="55" alt="facebook.svg"></img></a>
@@ -34,6 +35,7 @@ export default class Footer extends Component {
       </ul>
     </div>
       </Navbar> 
+  
     )
   }
 }
