@@ -166,30 +166,31 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
 // TODO1
 
 //GET /api/users/:id
-/* router.get('/api/users/:id', isEmployee, isLoggedIn, (req, res, next) => {
+/* router.get('/users/:id', isEmployee, isLoggedIn, (req, res, next) => {
     User.findById(req.params.userId).populate('')
       .then(res => {
         res.json(res);
       })
       .catch(err => next(err))
-  }); */
-
+  });
+ */
 // TODO2
 
 //GET /api/my-profile - User profile
 
-/* router.get('/api/my-profile/', isLoggedIn, (req, res, next) => {
+router.get('/my-profile/', isLoggedIn, (req, res, next) => {
   Schedule.find({_customer: req.user._id})
+  .populate('_customer')
   .then (data => {
     res.json(data);
   })
-}) */
+})
  
 // TODO3
 
 //PUT /api/my-profile 
 /* 
-router.put('/api/my-profile', isLoggedIn, (req, res, next) => {
+router.put('/my-profile', isLoggedIn, (req, res, next) => {
 
 }) */
 
