@@ -86,30 +86,30 @@ export default {
 
   cancel(_id, hour) {
     return service
-    .delete(`/schedules/${_id}/bookings`, {data:{hour:hour}})
-    .then(res => res.data)
-    .catch(errHandler)
-  },  
+      .delete(`/schedules/${_id}/bookings`, { data: { hour: hour } })
+      .then(res => res.data)
+      .catch(errHandler)
+  },
 
   reserve(_id, x) {
     return service
-    .post(`/schedules/${_id}/bookings`, {hour: x})
-    .then(res => res.data)
-    .catch(errHandler)
+      .post(`/schedules/${_id}/bookings`, { hour: x })
+      .then(res => res.data)
+      .catch(errHandler)
   },
 
   getSchedules() {
-  return service
-    .get('/schedules')
-    .then(res => res.data)
-    .catch(errHandler)
+    return service
+      .get('/schedules')
+      .then(res => res.data)
+      .catch(errHandler)
   },
 
   getSchedulesOfConnectedEmployee() {
-  return service
-    .get('/my-schedules')
-    .then(res => res.data)
-    .catch(errHandler)
+    return service
+      .get('/my-schedules')
+      .then(res => res.data)
+      .catch(errHandler)
   },
 
   createSchedule(body) {
@@ -117,16 +117,15 @@ export default {
       .post('/schedules', body)
       .then(res => res.data)
       .catch(errHandler)
-    },
+  },
 
-//TODO - create a new method to get the user's profile
-/*   createProfile(){
-      return service
-      .get ('/my-profile')
-      .then (res => res.data)
+  //TODO - create a new method to get the user's profile
+  createProfile() {
+    return service
+      .get('/my-profile')
+      .then(res => res.data)
       .catch(errHandler)
-
-  } */
+  }
 }
 
 
