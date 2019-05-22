@@ -163,21 +163,6 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
 });
 
 
-// TODO1
-
-//GET /api/users/:id
-/* router.get('/users/:id', isEmployee, isLoggedIn, (req, res, next) => {
-    User.findById(req.params.userId).populate('')
-      .then(res => {
-        res.json(res);
-      })
-      .catch(err => next(err))
-  });
- */
-// TODO2
-
-//GET /api/my-profile - User profile
-
 function sendProfile(profileId, req,res, next) {
   let userBookings = []
   Schedule.find()
@@ -205,13 +190,9 @@ router.get('/my-profile/', isLoggedIn, (req, res, next) => {
 router.get('/profile/:profileId', isEmployee, (req, res, next) => {
   sendProfile(req.params.profileId, req, res, next)
 })
-
  
-// TODO3
-
-//PUT /api/my-profile 
  
-router.put('/my-profile/', isLoggedIn, (req, res, next) => {
+router.put('/my-profile/:userId', isLoggedIn, (req, res, next) => {
   User.findByIdAndUpdate(req.params.userId, {
     name: req.body.name, 
     phone: req.body.phone, 
