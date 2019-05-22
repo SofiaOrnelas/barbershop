@@ -3,6 +3,7 @@ import api from '../../api';
 import { convertHourNumberToString, getReadableDate, checkIfSameWeeks, checkIfSameDays } from "../../utils";
 import { Button } from "reactstrap";
 import CreateSchedule from "../CreateSchedule"
+import { Link } from "react-router-dom"
 
 export default class Employee extends Component {
   constructor(props) {
@@ -62,7 +63,9 @@ export default class Employee extends Component {
     return <Button onClick={() => this.cancel(schedule._id, hour)}><div style={{color:"red"}}>Cancel: {bookingOfTheHour._customer.name}</div></Button>
     
     if (!bookingOfTheHour._customer) return "Available"
-    return <Button onClick={() => this.cancel(schedule._id, hour)}><div style={{color:"chartreuse"}}>Cancel: {bookingOfTheHour._customer.name}</div></Button>
+    return <Button tag={Link} to={"/profile/"+bookingOfTheHour._customer._id} formerOnClick={() => this.cancel(schedule._id, hour)}>
+      {bookingOfTheHour._customer.name}
+    </Button>
     // return bookingOfTheHour._customer.name
   }
 
@@ -79,7 +82,11 @@ export default class Employee extends Component {
 
   getTableData(i, date, hour) {
     let className = ""
-    if (date < this.state.date) className += "disabled" // TODO: change the condition
+    console.log("TEST", date, this.state.date)
+    if (
+      (!checkIfSameDays(date, new Date()) && date < new Date())
+      || (checkIfSameDays(date, new Date()) && hour < new Date().getHours()+new Date().getMinutes()/60)
+    ) className += "disabled" // TODO: change the condition
     if (!this.getScheduleOfTheDate(date)) {
       if (i === 0)
         return <td className={className} rowSpan={this.getPossibleHours().length}>

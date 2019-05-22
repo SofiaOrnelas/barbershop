@@ -178,21 +178,32 @@ router.delete('/schedules/:scheduleId/bookings', isEmployee, (req, res, next) =>
 
 //GET /api/my-profile - User profile
 
-router.get('/my-profile/', isLoggedIn, (req, res, next) => {
+function sendProfile(profileId, req,res, next) {
   let userBookings = []
   Schedule.find()
     .populate("bookings._customer")
     .then(dates => {
       dates.forEach(schedule => {
         schedule.bookings.forEach(booking => {
-          if (booking._customer && booking._customer._id.equals(req.user._id)){
+          if (booking._customer && booking._customer._id.equals(profileId)){
             userBookings.push({user: booking._customer, date: schedule.date, hour: booking.hour})
           }
         }); 
       });
-      res.json(userBookings);
+      res.json({
+        user: req.user,
+        bookings: userBookings,
+      });
     })
     .catch(err => next(err))
+}
+
+router.get('/my-profile/', isLoggedIn, (req, res, next) => {
+  sendProfile(req.user._id, req, res, next)
+})
+
+router.get('/profile/:profileId', isEmployee, (req, res, next) => {
+  sendProfile(req.params.profileId, req, res, next)
 })
 
  

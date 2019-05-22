@@ -120,7 +120,7 @@ export default {
   },
 
   //TODO - create a new method to get the user's profile
-  createProfile() {
+  getProfile() {
     return service
       .get('/my-profile')
       .then(res => res.data)

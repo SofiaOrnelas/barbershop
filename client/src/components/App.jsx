@@ -61,7 +61,6 @@ export default class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/StaffPage" component={StaffPage} />
           <Route path="/secret" component={Secret} />
-          <Route path="/:contacts" component={Home} />
           <Route render={() => <h2>404</h2>} />
 
         </Switch>
