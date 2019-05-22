@@ -199,9 +199,16 @@ router.get('/my-profile/', isLoggedIn, (req, res, next) => {
 // TODO3
 
 //PUT /api/my-profile 
-/* 
+ 
 router.put('/my-profile', isLoggedIn, (req, res, next) => {
-
-}) */
+  User.findByIdAndUpdate(req.params.profileId, {
+    name: req.body.name, 
+    phone: req.body.phone, 
+    email: req.body.email, 
+  })
+  .then (() => {
+    res.json('/my-profile/'+req.params.profileId)
+  })
+}) 
 
 module.exports = router;
