@@ -189,11 +189,20 @@ function sendProfile(profileId, req,res, next) {
             userBookings.push({user: booking._customer, date: schedule.date, hour: booking.hour})
           }
         }); 
+        if(userBookings.length == 0){
+          res.json({
+            user: req.user,
+            bookings: userBookings,
+          });
+        } else {
+          res.json({
+            user: userBookings[0].user,
+            bookings: userBookings,
+            scheduleId: schedule._id,
+          });
+        }
       });
-      res.json({
-        user: req.user,
-        bookings: userBookings,
-      });
+      
     })
     .catch(err => next(err))
 }

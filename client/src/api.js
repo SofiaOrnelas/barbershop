@@ -125,6 +125,13 @@ export default {
       .get('/my-profile')
       .then(res => res.data)
       .catch(errHandler)
+  },
+
+  getProfileId(id) {
+    return service
+      .get(`/profile/${id}`)
+      .then(res => res.data)
+      .catch(errHandler)
   }
 }
 

@@ -10,7 +10,7 @@ import Footer from './Footer';
 import Myprofile from './pages/Myprofile';
 import StaffPage from './pages/StaffPage'
 import api from '../api';
-import Clientdetail from './pages/Clientdetail';
+import ProfileId from './pages/ProfileId';
 
 window.api = api
 
@@ -54,8 +54,8 @@ export default class App extends Component {
       
         <Switch className="switch">
           <Route path="/" exact component={Home} />
+          <Route path="/profile/:id" component={ProfileId}/>
           <Route path="/my-profile" exact component={Myprofile} />
-          <Route path="/client-detail" exact component={Clientdetail}/>
           <Route path="/employee" exact component={Employee}/>
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />

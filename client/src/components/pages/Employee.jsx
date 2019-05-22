@@ -82,7 +82,6 @@ export default class Employee extends Component {
 
   getTableData(i, date, hour) {
     let className = ""
-    console.log("TEST", date, this.state.date)
     if (
       (!checkIfSameDays(date, new Date()) && date < new Date())
       || (checkIfSameDays(date, new Date()) && hour < new Date().getHours()+new Date().getMinutes()/60)
