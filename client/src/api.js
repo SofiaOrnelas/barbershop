@@ -118,6 +118,15 @@ export default {
       .then(res => res.data)
       .catch(errHandler)
     },
-}
 
 //TODO - create a new method to get the user's profile
+/*   createProfile(){
+      return service
+      .get ('/my-profile')
+      .then (res => res.data)
+      .catch(errHandler)
+
+  } */
+}
+
+
