@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import Myprofile from './pages/Myprofile';
 import StaffPage from './pages/StaffPage'
 import api from '../api';
 
@@ -54,6 +55,7 @@ export default class App extends Component {
       
         <Switch className="switch">
           <Route path="/" exact component={Home} />
+          <Route path="/my-profile" exact component={Myprofile} />
           <Route path="/employee" exact component={Employee}/>
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />

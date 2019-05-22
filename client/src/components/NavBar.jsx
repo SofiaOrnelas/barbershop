@@ -42,6 +42,9 @@ export default class NavBar extends Component {
           <Nav className="ml-auto" navbar>
             <NavItem>
             </NavItem>
+            {api.isLoggedIn() && <NavItem>
+              <NavLink tag={NLink} to="/my-profile">MyProfile</NavLink>
+            </NavItem>}
             {api.isLoggedInEmployee() && <NavItem>
               <NavLink tag={NLink} to="/employee">Employee</NavLink>
             </NavItem>}
