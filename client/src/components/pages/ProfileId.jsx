@@ -28,14 +28,15 @@ export default class ProfileId extends Component {
       })
   }
 
-  cancel(_id, hour) {
-    api.cancel(_id, hour)
+  cancel(scheduleId, hour, indexToRemove) {
+    api.cancel(scheduleId, hour)
     .then(() => {
       api.getSchedulesOfConnectedEmployee()
       .then(schedules => {
         console.log(schedules)
         this.setState({
-          schedules: schedules
+          schedules: schedules,
+          bookings: this.state.bookings.filter((booking,i) => i !== indexToRemove)
         })
       })
     })
@@ -53,7 +54,7 @@ export default class ProfileId extends Component {
       </div>}
       {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
       {this.state.bookings && getReadableDate(booking.date)} - {convertHourNumberToString(booking.hour)} 
-       <Button onClick={() => this.cancel(this.state.scheduleId, booking.hour)}><div style={{color:"red"}}>Cancel</div></Button>
+       <Button onClick={() => this.cancel(booking.scheduleId, booking.hour, i)}><div style={{color:"red"}}>Cancel</div></Button>
 
       </div>)}
 
