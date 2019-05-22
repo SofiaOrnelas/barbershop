@@ -41,7 +41,7 @@ export default class Calendar extends Component {
   getAvailibity(schedule, hour) {
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
     if (!bookingOfTheHour) return  <div style={{color:"red"}}>Off</div> 
-    if (!bookingOfTheHour._customer) return <Button onClick={() => this.reserve(schedule._id, hour)}><div style={{color:"green"}}>Reserve</div></Button>
+    if (!bookingOfTheHour._customer) return <Button onClick={() => this.reserve(schedule._id, hour)}><div style={{color:"white"}}>Reserve</div></Button>
     if (api.isLoggedIn() && bookingOfTheHour._customer._id === api.getLocalStorageUser()._id) return bookingOfTheHour._customer.name
     return <div style={{color:"red"}}>Unvailable</div>
   }
@@ -59,19 +59,21 @@ export default class Calendar extends Component {
 
   render() {
     return (
+    <div className="DivBack-Calendar">
       <div className="Calendar">
         <h1>Schedule</h1>
 
-        <Button onClick={this.decreaseDate}>Before</Button>
-        {getReadableDate(this.state.date)}
-        <Button onClick={this.increaseDate}>After</Button>
+        <Button onClick={this.decreaseDate} className="shedule-btn">Before</Button>
+        {/* // ----------- DATA DO CALENDÁRIO ----------- */}
+        <a className="Date-Home">{getReadableDate(this.state.date)}</a>
+        <Button onClick={this.increaseDate} className="shedule-btn">After</Button>
 
         {!this.state.schedules && <div>Loading...</div>}
         {this.state.schedules && <table className="shedules-list">
           <thead>
-            <tr>
+            <tr className="theadTest">
               <th></th>
-              {this.getSchedulesOfTheDay().map(schedule => <th key={schedule._id}>
+              {this.getSchedulesOfTheDay().map(schedule => <th className="NomeBarbeiro" key={schedule._id}>
                 {schedule._employee && schedule._employee.name}
               </th>)}
             </tr>
@@ -86,6 +88,7 @@ export default class Calendar extends Component {
           </tbody>
         </table>}
       </div>
+    </div>
     );
   }
 

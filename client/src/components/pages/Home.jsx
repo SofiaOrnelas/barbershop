@@ -12,14 +12,14 @@ export default class Home extends Component {
   }
 
   componentDidUpdate(){
-    if(this.props.match.params.contacts){
+    if(this.props.location.hash === "#contacts"){
       var elmnt = document.getElementById("scroll");
           elmnt.scrollIntoView();
     }
   }
 
   componentDidMount(){
-    if(this.props.match.params.contacts){
+    if(this.props.location.hash === "#contacts"){
       var elmnt = document.getElementById("scroll");
           elmnt.scrollIntoView();
     }
