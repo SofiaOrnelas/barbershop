@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import { convertHourNumberToString, getReadableDate, checkIfSameDays, isLoggedIn } from "../../utils";
+import { convertHourNumberToString, getReadableDate, checkIfSameDays } from "../../utils";
 import { Button } from "reactstrap";
 // import { REPLServer } from 'repl';
 import { NavLink as NLink } from 'react-router-dom';

@@ -9,7 +9,7 @@ export default class Contacts extends Component {
         <p className="contact"><h4>Morada:</h4>
           <h5>Rua Maria Alda Barbosa Nogueira n.4B, Amadora</h5></p>
 
-        <p className="contact"><h4>Segunda a Sexta:</h4>
+        <p className="contact"><h4>Segunda a Sábado:</h4>
         <h5>9h-13h / 15h-19h</h5></p>
 
         <p className="contact"><h4>Domingo e Feriados:</h4>
