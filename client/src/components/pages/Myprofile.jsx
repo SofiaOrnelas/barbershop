@@ -5,6 +5,8 @@ import { Button } from "reactstrap";
 
 //TODO1 - Finish MyProfile
 //TODO2 - Add a new component for /profile/:userId 
+// TODO change button
+// TODO diferenciar reservas futuras das passadas
 export default class Myprofile extends Component {
   constructor(props) {
     super(props);
