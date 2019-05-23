@@ -12,7 +12,7 @@ export default class Myprofile extends Component {
       schedule: [],
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
   componentDidMount() {
@@ -20,38 +20,63 @@ export default class Myprofile extends Component {
       .then(profile => {
         console.log(profile)
         this.setState({
+
           bookings: profile.bookings,
-          user: profile.user
+          user: profile.user,
+          name: profile.user.name, 
+          phone: profile.user.phone, 
+          email: profile.user.email,
+          isEditing: false,
         })
       })
   }
 
   handleChange(event) {
     this.setState({
-      value: event.target.value
+      [event.target.name]: event.target.value
     });
   }
 
-  handleSubmit(){
-    api.editProfile({
-      name: this.props.user.name,
-      phone: this.props.user.phone,
-      email: this.props.email
-    })
+  handleButtonClick(event){
+    if(this.state.isEditing){
+      event.preventDefault()
+      api.editProfile({
+        name: this.state.name,
+        phone: this.state.phone,
+        email: this.state.email
+      })
+      this.setState({
+        isEditing: false,
+      })
+    }else {
+      this.setState({
+        isEditing: true,
+      })
+    }
+    
   }
 
 
   render() {
     return (
       <div>
-        {this.state.user && 
-        <form onSubmit={this.handleSubmit}>
-          <label>Name: <input type="text" value={this.state.user.name} onChange={this.handleChange}/></label> <br />
-          <label>Phone: <input type="text" value={this.state.user.phone} onChange={this.handleChange}/></label><br />
-          <label>Email: <input type="text" value={this.state.user.email} onChange={this.handleChange}/></label><br /><br />
-          <Button>Edit Profile</Button>
+        {this.state.user && this.state.isEditing ?
+        <>
+          <label>Name: <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label> <br />
+          <label>Phone: <input type="text" name="phone" value={this.state.phone} onChange={this.handleChange}/></label><br />
+          <label>Email: <input type="text" name="email" value={this.state.email} onChange={this.handleChange}/></label><br /><br />
+          <Button onClick={this.handleButtonClick}>Save Changes</Button>
           <hr />
-        </form>}
+        </>
+        :
+        <>
+            Name: <text>{this.state.name}</text> <br />
+            Phone: <text>{this.state.phone}</text><br />
+            Email: <text>{this.state.email}</text><br /><br />
+          <Button onClick={this.handleButtonClick}>Edit Profile</Button>
+          <hr />
+        </>
+        }
 
         <h2>Future bookings</h2>
         <h2>Previous bookings</h2>
@@ -66,3 +91,17 @@ export default class Myprofile extends Component {
     )
   }
 }
+
+
+/* handleButtonClick(){
+  api.editProfile()
+  .then(profile => {
+  console.log(profile)
+  this.setState({
+  name: this.props.user.name,
+  phone: this.props.user.phone,
+  email: this.props.email
+  })
+  })
+  } */
+  
