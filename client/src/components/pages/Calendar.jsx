@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import { convertHourNumberToString, getReadableDate, checkIfSameDays } from "../../utils";
+import { convertHourNumberToString, getReadableDate, checkIfSameDays, isLoggedIn } from "../../utils";
 import { Button } from "reactstrap";
 // import { REPLServer } from 'repl';
+import { NavLink as NLink } from 'react-router-dom';
+
 
 export default class Calendar extends Component {
   constructor(props) {
@@ -41,7 +43,18 @@ export default class Calendar extends Component {
   getAvailibity(schedule, hour) {
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
     if (!bookingOfTheHour) return  <div style={{color:"red"}}>Off</div> 
-    if (!bookingOfTheHour._customer) return <Button onClick={() => this.reserve(schedule._id, hour)}><div style={{color:"white"}}>Reserve</div></Button>
+    
+    // TODO HELP REDIRECT TO LOGIN WHEN TRY TO RESERVE WITHOUT AN ACCOUNT
+    if (!bookingOfTheHour._customer  && !api.isLoggedIn()) 
+    return <Button onClick={() => this.reserve(schedule._id, hour)} tag={NLink} to="/login"><div style={{color:"white"}}>Reserve</div></Button>
+    // {!api.isLoggedIn() 
+    
+    if (!bookingOfTheHour._customer) 
+    return <Button onClick={() => this.reserve(schedule._id, hour)}><div style={{color:"white"}}>Reserve</div></Button>
+    
+
+
+
     if (api.isLoggedIn() && bookingOfTheHour._customer._id === api.getLocalStorageUser()._id) return bookingOfTheHour._customer.name
     return <div style={{color:"red"}}>Unvailable</div>
   }
