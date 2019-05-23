@@ -4,14 +4,14 @@ import { convertHourNumberToString, getReadableDate } from "../../utils";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom"
 
-
+let lol = 0;
 
 //TODO - Finish MyProfile
 export default class Myprofile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      lol: 0,
       schedules: null,
       bookings: [],
       date: new Date()
@@ -30,24 +30,21 @@ export default class Myprofile extends Component {
       })
   }
 
-  getFutureReserve(booking, hour) {
-
-    if ((this.state.bookings && getReadableDate(booking.date)) > new Date()) {
+  getFutureReserve(booking) {
+    if (booking.date > new Date().toISOString()) {
       return (
-          this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
-            Bookings: {this.state.bookings && getReadableDate(booking.date)} - {convertHourNumberToString(booking.hour)}
-            {this.getAvailibity()}
-          </div>
-          )
-        )
+        <h1>{getReadableDate(booking.date)}</h1>
+      )
     }
 
   }
 
-  // getPreviousReserve(){
-
-
-  // }
+  getPreviousReserve(booking){
+    if (booking.date < new Date().toISOString()) {
+      console.log("TCL: Myprofile -> getPreviousReserve -> booking.date", booking.date)
+      lol++
+    }
+  }
   handleChange(event) {
     this.setState({
       value: event.target.value
@@ -76,15 +73,16 @@ export default class Myprofile extends Component {
         </form>}
 
         <h2>Future bookings</h2>
-        {this.getFutureReserve()}
+        {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
+          {this.getFutureReserve(booking)}
+        </div>)}
         <hr />
 
         <h2>Previous bookings</h2>
-        {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
-          Bookings: {this.state.bookings && getReadableDate(booking.date)} - {convertHourNumberToString(booking.hour)}
-          {this.getAvailibity()}
+        {this.state.bookings && this.state.bookings.map((booking, i) => <div  key={i}>
+        {this.getPreviousReserve(booking)}
         </div>)}
-
+        {lol}
       </div>
     )
   }
