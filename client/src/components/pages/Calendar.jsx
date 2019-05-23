@@ -84,7 +84,7 @@ export default class Calendar extends Component {
         {!this.state.schedules && <div>Loading...</div>}
         {this.state.schedules && <table className="shedules-list">
           <thead>
-            <tr className="theadTest">
+            <tr>
               <th></th>
               {this.getSchedulesOfTheDay().map(schedule => <th className="NomeBarbeiro" key={schedule._id}>
                 {schedule._employee && schedule._employee.name}
