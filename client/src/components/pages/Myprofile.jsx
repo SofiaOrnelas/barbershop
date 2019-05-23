@@ -11,11 +11,8 @@ export default class Myprofile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
       lol: 0,
-=======
       message: null, 
->>>>>>> d533fe28aaeb46227d4f62570d4b13a34ae0092f
       schedules: null,
       bookings: [],
       date: new Date()
@@ -48,16 +45,13 @@ export default class Myprofile extends Component {
 
   }
 
-<<<<<<< HEAD
   getPreviousReserve(booking){
     if (booking.date < new Date().toISOString()) {
       console.log("TCL: Myprofile -> getPreviousReserve -> booking.date", booking.date)
       lol++
     }
   }
-=======
 
->>>>>>> d533fe28aaeb46227d4f62570d4b13a34ae0092f
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
@@ -114,7 +108,6 @@ export default class Myprofile extends Component {
         </>
         }
 
-<<<<<<< HEAD
         <h2>Future bookings</h2>
         {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
           {this.getFutureReserve(booking)}
@@ -126,7 +119,6 @@ export default class Myprofile extends Component {
         {this.getPreviousReserve(booking)}
         </div>)}
         {lol}
-=======
   {/*       <h2>Future bookings</h2>
         {this.getFutureReserve()}
         <hr />
@@ -137,7 +129,6 @@ export default class Myprofile extends Component {
           {this.getAvailibity()}
         </div>)} */}
 
->>>>>>> d533fe28aaeb46227d4f62570d4b13a34ae0092f
       </div>
     )
   }
