@@ -11,8 +11,8 @@ export default class Employee extends Component {
     let firstDateOfCurrentWeek = new Date() // The value is the current date
     firstDateOfCurrentWeek.setDate(firstDateOfCurrentWeek.getDate() - firstDateOfCurrentWeek.getDay() +1)
     this.state = {
-      schedules: null,
-      bookings: [],
+      schedules: [],
+      bookings: null,
       date: firstDateOfCurrentWeek
     }
     this.increaseDate = this.increaseDate.bind(this)
@@ -56,6 +56,8 @@ export default class Employee extends Component {
 
   // Method that returns "Off", "Unavailable" or "Available"
   getAvailibity(schedule, hour) {
+		console.log("TCL: Employee -> getAvailibity -> hour", hour)
+		console.log("TCL: Employee -> getAvailibity -> schedule", schedule)
     if (!schedule) return "There is no Schedule"
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
     if (!bookingOfTheHour) return "Off"
@@ -85,7 +87,7 @@ export default class Employee extends Component {
     if (
       (!checkIfSameDays(date, new Date()) && date < new Date())
       || (checkIfSameDays(date, new Date()) && hour < new Date().getHours()+new Date().getMinutes()/60)
-    ) className += "disabled" // TODO: change the condition
+    ) className += "disabled"
     if (!this.getScheduleOfTheDate(date)) {
       if (i === 0)
         return <td className={className} rowSpan={this.getPossibleHours().length}>
