@@ -128,7 +128,6 @@ export default {
   },
   
   editProfile(data) {
-    console.log(data)
     return service
     .put(`/my-profile/`, data)
     .then (res => res.data)

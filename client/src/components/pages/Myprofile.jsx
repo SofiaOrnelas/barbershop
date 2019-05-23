@@ -11,7 +11,7 @@ export default class Myprofile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      message: null, 
       schedules: null,
       bookings: [],
       date: new Date()
@@ -49,10 +49,7 @@ export default class Myprofile extends Component {
 
   }
 
-  // getPreviousReserve(){
 
-
-  // }
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
@@ -61,21 +58,29 @@ export default class Myprofile extends Component {
 
   handleButtonClick(event){
     if(this.state.isEditing){
-      event.preventDefault()
-      api.editProfile({
-        name: this.state.name,
-        phone: this.state.phone,
-        email: this.state.email
-      })
-      this.setState({
-        isEditing: false,
-      })
+      if(this.state.name != "" && this.state.phone.toString().length === 9 && this.state.email != ""){
+        event.preventDefault()
+        api.editProfile({
+          name: this.state.name,
+          phone: this.state.phone,
+          email: this.state.email
+        })
+        this.setState({
+          isEditing: false,
+          message: null
+        })
+
+      } else {
+        this.setState({
+          message: 'All fields are required.'
+        })
+
+      }
     }else {
       this.setState({
         isEditing: true,
       })
     }
-    
   }
 
 
@@ -87,7 +92,8 @@ export default class Myprofile extends Component {
           <label>Name: <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label> <br />
           <label>Phone: <input type="text" name="phone" value={this.state.phone} onChange={this.handleChange}/></label><br />
           <label>Email: <input type="text" name="email" value={this.state.email} onChange={this.handleChange}/></label><br /><br />
-          <Button onClick={this.handleButtonClick}>Save Changes</Button>
+          <Button onClick={this.handleButtonClick}>Save Changes</Button> <br/><br/>
+          {this.state.message}
           <hr />
         </>
         :
@@ -100,7 +106,7 @@ export default class Myprofile extends Component {
         </>
         }
 
-        <h2>Future bookings</h2>
+  {/*       <h2>Future bookings</h2>
         {this.getFutureReserve()}
         <hr />
 
@@ -108,7 +114,7 @@ export default class Myprofile extends Component {
         {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
           Bookings: {this.state.bookings && getReadableDate(booking.date)} - {convertHourNumberToString(booking.hour)}
           {this.getAvailibity()}
-        </div>)}
+        </div>)} */}
 
       </div>
     )
