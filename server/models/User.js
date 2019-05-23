@@ -24,7 +24,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     enum: ["Customer", "Employee", "Owner"],
-    default: "Customer"
+    default: "Employee"
   }
 
 
