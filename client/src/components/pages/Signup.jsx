@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -72,8 +72,8 @@ export default class Signup extends Component {
        {this.state.message && <div className="info info-danger">
        {this.state.message}
        </div>}
+      </div>
     </div>
-</div>
 
    );
   }

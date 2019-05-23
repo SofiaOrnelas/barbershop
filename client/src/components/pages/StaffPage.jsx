@@ -15,13 +15,13 @@ export default class StaffPage extends Component {
          <div id="carouselExampleInterval" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner-staff">
                <div className="carousel-item active" data-interval="2000">
-                 <img src="/SliderStaff/DU_SLIDER-01.png" className="d-block mw-100 mh-100" alt="slider_1.jpg"/>
+                 <img src="/SliderStaff/DU_SLIDER-01.png" className="d-md-block mw-100 mh-100" alt="slider_1.jpg"/>
                </div>
                   <div className="carousel-item" data-interval="3000">
-                    <img src="/SliderStaff/DU_SLIDER-02.png" className="d-block mw-100 mh-100" alt="slider_2.jpg"/>
+                    <img src="/SliderStaff/DU_SLIDER-02.png" className="d-md-block mw-100 mh-100" alt="slider_2.jpg"/>
                   </div>
                   <div className="carousel-item" data-interval="3000">
-                    <img src="/SliderStaff/DU_SLIDER-03.png" className="d-block mw-100 mh-100" alt="slider_3.jpg"/>
+                    <img src="/SliderStaff/DU_SLIDER-03.png" className="d-md-block mw-100 mh-100" alt="slider_3.jpg"/>
                   </div>
             </div>
                <a className="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
@@ -56,11 +56,11 @@ export default class StaffPage extends Component {
                     <img src="/SliderStaff/RAFA_SLIDER-03.png" className="d-block mw-100 mh-100" alt="slider_3.jpg"/>
                   </div>
             </div>
-               <a className="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+               <a className="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                  <span className="sr-only">Previous</span>
                </a>
-               <a className="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+               <a className="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
                  <span className="sr-only">Next</span>
                </a>

@@ -99,18 +99,16 @@ export default class Employee extends Component {
     }
   }
 
-
-
   render() {
     return (
       <div className="DivBack-Calendar-Employee">
-      <div className="Calendar">
+      <div className="Calendar-Employee">
         <h1>Schedule</h1>
 
         <Button onClick={this.decreaseDate} className="shedule-btn-Employee">Before</Button>
         <a className="Date-Home">{getReadableDate(this.state.date)}</a>
         <Button onClick={this.increaseDate} className="shedule-btn-Employee">After</Button>
-
+      
         {!this.state.schedules && <div>Loading...</div>}
         {this.state.schedules && <table className="shedules-list-Employee">
           <thead>
@@ -131,8 +129,9 @@ export default class Employee extends Component {
             </tr>)}
           </tbody>
         </table>}
+        </div>
       </div>
-    </div>
+    
     );
   }
 

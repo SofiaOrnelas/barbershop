@@ -27,6 +27,24 @@
     // margin:15px 15px;
   }
 }
+
+.Calendar-Employee h1{
+  color:rgb(255, 255, 255);
+    text-shadow: 3px 3px 2px rgb(2, 2, 2);
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
+    padding: 20px;
+}
+
+.center-calend{
+  display: flex;
+  flex: content;
+  margin:10px auto;
+  width: 90;
+  height:600px;
+  background-color: red;
+}
+
 .shedules-list{
   font-family: 'Merriweather', sans-serif;
   color:rgb(0, 0, 0);
