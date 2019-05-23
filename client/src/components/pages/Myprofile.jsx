@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
 import api from '../../api';
-import { convertHourNumberToString, getReadableDate, checkIfSameDays, checkIfSameWeeks } from "../../utils";
+import { convertHourNumberToString, getReadableDate } from "../../utils";
 import { Button } from "reactstrap";
+import { Link } from "react-router-dom"
+
+
 
 //TODO - Finish MyProfile
 export default class Myprofile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookings: null,
-      schedule: [],
+
+      schedules: null,
+      bookings: [],
+      date: new Date()
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -18,7 +23,6 @@ export default class Myprofile extends Component {
   componentDidMount() {
     api.getProfile()
       .then(profile => {
-        console.log(profile)
         this.setState({
 
           bookings: profile.bookings,
@@ -31,6 +35,24 @@ export default class Myprofile extends Component {
       })
   }
 
+  getFutureReserve(booking, hour) {
+
+    if ((this.state.bookings && getReadableDate(booking.date)) > new Date()) {
+      return (
+          this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
+            Bookings: {this.state.bookings && getReadableDate(booking.date)} - {convertHourNumberToString(booking.hour)}
+            {this.getAvailibity()}
+          </div>
+          )
+        )
+    }
+
+  }
+
+  // getPreviousReserve(){
+
+
+  // }
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
@@ -79,12 +101,13 @@ export default class Myprofile extends Component {
         }
 
         <h2>Future bookings</h2>
+        {this.getFutureReserve()}
+        <hr />
+
         <h2>Previous bookings</h2>
         {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
-
           Bookings: {this.state.bookings && getReadableDate(booking.date)} - {convertHourNumberToString(booking.hour)}
-          {/* <Button onClick={() => this.cancel(schedule._id, hour)}><div style={{color:"red"}}>Cancel: {bookingOfTheHour._customer.name}</div></Button> <br /> */}
-
+          {this.getAvailibity()}
         </div>)}
 
       </div>

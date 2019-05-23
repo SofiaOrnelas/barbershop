@@ -16,6 +16,7 @@ require('../configs/database')
 
 let users = [
   {
+<<<<<<< HEAD
     email: "alice",
     password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
   },
@@ -24,6 +25,8 @@ let users = [
     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
   }, 
   {
+=======
+>>>>>>> c0d3932508715ee95fe5b99e43df081776a08894
     name: 'Hugo', 
     email: 'hugomaneira@gmail.com', 
     password: bcrypt.hashSync("hugo", bcrypt.genSaltSync(bcryptSalt)), 

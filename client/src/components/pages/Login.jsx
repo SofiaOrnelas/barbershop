@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api';
-// import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export default class Login extends Component {
   constructor(props) {
@@ -31,8 +31,38 @@ export default class Login extends Component {
 
   render() {
     return (
+    <div className="ContainerLogin">
       <div className="Login">
-        <h2>Login</h2>
+      <h2>Login</h2>
+         <Form>
+        <FormGroup>
+          
+          <Input type="text" value={this.state.email} name="email" onChange={this.handleInputChange} id="exampleEmail" placeholder="Email" /><br />
+        </FormGroup>
+        {' '}
+        <FormGroup>
+         
+          <Input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} id="examplePassword" placeholder="Password" /><br />
+        </FormGroup>
+        {' '}
+        <Button className="btnLogin-Submit" onClick={(e) => this.handleClick(e)}>Submit</Button>
+      </Form>  
+       {this.state.message && <div className="info info-danger">
+       {this.state.message}
+     </div>}
+    </div> 
+</div>
+
+
+          );
+        }
+      }
+
+
+      /* <h2>Login</h2>
+      {/* <Input type="email" name="email" id="exampleEmail" placeholder="Email" /> */
+          /* type="text" value={this.state.email} name="email" onChange={this.handleInputChange} 
+
         <form>
           Email: <input type="text" value={this.state.email} name="email" onChange={this.handleInputChange} /> <br />
           Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} /> <br />
@@ -41,28 +71,4 @@ export default class Login extends Component {
         {this.state.message && <div className="info info-danger">
           {this.state.message}
         </div>}
-      </div>
-
-         /* <Form inline>
-        <FormGroup>
-          <Label for="exampleEmail" hidden>Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="Email" />
-
-          <Input type="email" name="email" id="exampleEmail" placeholder="Email" />
-        </FormGroup>
-        {' '}
-        <FormGroup>
-          <Label for="examplePassword" hidden>Password</Label>
-          <Input type="password" name="password" id="examplePassword" placeholder="Password" />
-        </FormGroup>
-        {' '}
-        <Button>Submit</Button>
-      </Form>  */
-
-
-
-
-          );
-        }
-      }
-
+      </div> */

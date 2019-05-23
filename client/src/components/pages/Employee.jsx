@@ -11,8 +11,8 @@ export default class Employee extends Component {
     let firstDateOfCurrentWeek = new Date() // The value is the current date
     firstDateOfCurrentWeek.setDate(firstDateOfCurrentWeek.getDate() - firstDateOfCurrentWeek.getDay() +1)
     this.state = {
-      schedules: null,
-      bookings: [],
+      schedules: [],
+      bookings: null,
       date: firstDateOfCurrentWeek
     }
     this.increaseDate = this.increaseDate.bind(this)
@@ -56,6 +56,8 @@ export default class Employee extends Component {
 
   // Method that returns "Off", "Unavailable" or "Available"
   getAvailibity(schedule, hour) {
+		console.log("TCL: Employee -> getAvailibity -> hour", hour)
+		console.log("TCL: Employee -> getAvailibity -> schedule", schedule)
     if (!schedule) return "There is no Schedule"
     let bookingOfTheHour = schedule.bookings.find(booking => booking.hour === hour)
     if (!bookingOfTheHour) return "Off"
@@ -64,7 +66,7 @@ export default class Employee extends Component {
     
     if (!bookingOfTheHour._customer) return "Available"
     return <Button tag={Link} to={"/profile/"+bookingOfTheHour._customer._id} formerOnClick={() => this.cancel(schedule._id, hour)}>
-      <div style={{color:"blue"}}> {bookingOfTheHour._customer.name} </div>
+      <div style={{color:"white"}}> {bookingOfTheHour._customer.name} </div>
     </Button>
     // return bookingOfTheHour._customer.name
   }
@@ -85,7 +87,7 @@ export default class Employee extends Component {
     if (
       (!checkIfSameDays(date, new Date()) && date < new Date())
       || (checkIfSameDays(date, new Date()) && hour < new Date().getHours()+new Date().getMinutes()/60)
-    ) className += "disabled" // TODO: change the condition
+    ) className += "disabled"
     if (!this.getScheduleOfTheDate(date)) {
       if (i === 0)
         return <td className={className} rowSpan={this.getPossibleHours().length}>
@@ -116,14 +118,14 @@ export default class Employee extends Component {
           <thead>
             <tr>
               <th></th>
-              {this.getDatesOfTheWeek().map(date => <th key={date}>
+              {this.getDatesOfTheWeek().map(date => <th className="NomeBarbeiro" key={date}>
                 {getReadableDate(date)}
               </th>)}
             </tr>
           </thead>
           <tbody>
             {this.getPossibleHours().map((hour,iHour) => <tr key={hour}>
-              <td>{convertHourNumberToString(hour)}</td>
+              <td className="hours">{convertHourNumberToString(hour)}</td>
               {this.getDatesOfTheWeek().map((date) => this.getTableData(iHour, date, hour))}
               {/* {this.getSchedulesOfTheWeek().map(schedule => <td key={schedule._id}>
               {this.getAvailibity(schedule, hour)}

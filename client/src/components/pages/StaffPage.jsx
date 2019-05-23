@@ -7,7 +7,7 @@ export default class StaffPage extends Component {
       {/* -----------------  BARBER 1 ------------------------------- */}
       <div className="Barber-Staff-Div">
          <div className="Photo-Staff">
-           <p className="Names">Duarte Fialho</p>
+           <p className="Names">Duarte</p>
             <img src="/Staff/1_DU.png" alt="Duarte"/>
          </div>
        {/* -----------------  SLIDER BARBER 1 ------------------------------- */}
@@ -38,7 +38,7 @@ export default class StaffPage extends Component {
           {/* -----------------  BARBER 2 ------------------------------- */}
       <div className="Barber-Staff-Div">
          <div className="Photo-Staff">
-         <p className="Names">Rafael Rodrigues</p>
+         <p className="Names">Rafa</p>
             <img src="/Staff/2_RAFA.png" alt="Rafa"/>
          </div>
 
@@ -70,7 +70,7 @@ export default class StaffPage extends Component {
           {/* -----------------  BARBER 3 ------------------------------- */}
       <div className="Barber-Staff-Div">
          <div className="Photo-Staff">
-         <p className="Names">Di Pinto</p>
+         <p className="Names">Di</p>
             <img src="/Staff/3_DIP.png" alt="Di"/>
          </div>
 
