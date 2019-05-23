@@ -3,8 +3,7 @@ import api from '../../api';
 import { convertHourNumberToString, getReadableDate, checkIfSameDays, checkIfSameWeeks } from "../../utils";
 import { Button } from "reactstrap";
 
-//TODO1 - Finish MyProfile
-//TODO2 - Add a new component for /profile/:userId 
+//TODO - Finish MyProfile
 export default class Myprofile extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +11,8 @@ export default class Myprofile extends Component {
       bookings: null,
       schedule: [],
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -25,15 +26,32 @@ export default class Myprofile extends Component {
       })
   }
 
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  handleSubmit(){
+    api.editProfile({
+      name: this.props.user.name,
+      phone: this.props.user.phone,
+      email: this.props.email
+    })
+  }
+
+
   render() {
     return (
       <div>
-        {this.state.user && <div>
-          Name: {this.state.user.name} <br />
-          Phone: {this.state.user.phone} <br />
-          Email: {this.state.user.email} <br />
+        {this.state.user && 
+        <form onSubmit={this.handleSubmit}>
+          <label>Name: <input type="text" value={this.state.user.name} onChange={this.handleChange}/></label> <br />
+          <label>Phone: <input type="text" value={this.state.user.phone} onChange={this.handleChange}/></label><br />
+          <label>Email: <input type="text" value={this.state.user.email} onChange={this.handleChange}/></label><br /><br />
+          <Button>Edit Profile</Button>
           <hr />
-        </div>}
+        </form>}
 
         <h2>Future bookings</h2>
         <h2>Previous bookings</h2>

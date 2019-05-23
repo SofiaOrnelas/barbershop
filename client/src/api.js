@@ -126,6 +126,13 @@ export default {
       .then(res => res.data)
       .catch(errHandler)
   },
+  
+  editProfile(id) {
+    return service
+    .put (`/my-profile/${id}`)
+    .then (res => res.data)
+    .catch(errHandler)
+  },
 
   getProfileId(id) {
     return service
@@ -133,6 +140,7 @@ export default {
       .then(res => res.data)
       .catch(errHandler)
   }
+
 }
 
 
