@@ -64,7 +64,7 @@ export default class Employee extends Component {
     
     if (!bookingOfTheHour._customer) return "Available"
     return <Button tag={Link} to={"/profile/"+bookingOfTheHour._customer._id} formerOnClick={() => this.cancel(schedule._id, hour)}>
-      <div style={{color:"blue"}}> {bookingOfTheHour._customer.name} </div>
+      <div style={{color:"white"}}> {bookingOfTheHour._customer.name} </div>
     </Button>
     // return bookingOfTheHour._customer.name
   }
@@ -116,14 +116,14 @@ export default class Employee extends Component {
           <thead>
             <tr>
               <th></th>
-              {this.getDatesOfTheWeek().map(date => <th key={date}>
+              {this.getDatesOfTheWeek().map(date => <th className="NomeBarbeiro" key={date}>
                 {getReadableDate(date)}
               </th>)}
             </tr>
           </thead>
           <tbody>
             {this.getPossibleHours().map((hour,iHour) => <tr key={hour}>
-              <td>{convertHourNumberToString(hour)}</td>
+              <td className="hours">{convertHourNumberToString(hour)}</td>
               {this.getDatesOfTheWeek().map((date) => this.getTableData(iHour, date, hour))}
               {/* {this.getSchedulesOfTheWeek().map(schedule => <td key={schedule._id}>
               {this.getAvailibity(schedule, hour)}

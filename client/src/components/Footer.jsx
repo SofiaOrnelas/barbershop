@@ -17,7 +17,7 @@ export default class Footer extends Component {
       <Navbar color="dark" dark expand="sm" className="navbar">
         <NavbarBrand tag={Link} to="/">
         <div className="logoHome">
-          <img src="/Logo_Branco.png" className="App-title" alt="logo" />
+          <p className="topBtn">Home</p>
         </div></NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
           <Nav className="ml-auto" navbar>
