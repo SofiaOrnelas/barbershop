@@ -15,58 +15,59 @@ import ProfileId from './pages/ProfileId';
 window.api = api
 
 // Link, NavLink,
- 
+
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-     // countries: []
+      // countries: []
     }
   }
 
   render() {
     return (   /////////ORIGINAL //////
-//       <div className="App">
-//         <header className="App-header">
-//         <div className="logoHome">
-//           <img src="/Logo_Branco.png" className="App-title" alt="logo" />
-//         </div>
-// {/*           <img src={logo} className="App-logo" alt="logo" />
-//  {/*         <h1 className="App-title">Du'Arte BarberShop!!!</h1> */}
-//           <NavLink to="/" exact>Home</NavLink>
-//           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
-//           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
-//           {api.isLoggedIn() && <Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</Link>}
-//        {/*    <NavLink to="/secret">Secret</NavLink> */}
-//         </header>
-//         <Switch className="switch">
-//           <Route path="/" exact component={Home} />
-//           <Route path="/signup" component={Signup} />
-//           <Route path="/login" component={Login} />
-//           <Route path="/secret" component={Secret} />
-//           <Route render={() => <h2>404</h2>} />
-//         </Switch>
-//       </div>
+      //       <div className="App">
+      //         <header className="App-header">
+      //         <div className="logoHome">
+      //           <img src="/Logo_Branco.png" className="App-title" alt="logo" />
+      //         </div>
+      // {/*           <img src={logo} className="App-logo" alt="logo" />
+      //  {/*         <h1 className="App-title">Du'Arte BarberShop!!!</h1> */}
+      //           <NavLink to="/" exact>Home</NavLink>
+      //           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
+      //           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
+      //           {api.isLoggedIn() && <Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</Link>}
+      //        {/*    <NavLink to="/secret">Secret</NavLink> */}
+      //         </header>
+      //         <Switch className="switch">
+      //           <Route path="/" exact component={Home} />
+      //           <Route path="/signup" component={Signup} />
+      //           <Route path="/login" component={Login} />
+      //           <Route path="/secret" component={Secret} />
+      //           <Route render={() => <h2>404</h2>} />
+      //         </Switch>
+      //       </div>
 
-   <div id="homebutton" className="App">
-        <NavBar/>
+      <div id="homebutton" className="App">
+        <NavBar />
         {/* <Calendar/> */}
-      
-        <Switch className="switch">
-          <Route path="/" exact component={Home} />
-          <Route path="/profile/:id" component={ProfileId}/>
-          <Route path="/my-profile" exact component={Myprofile} />
-          <Route path="/employee" exact component={Employee}/>
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
-          <Route path="/StaffPage" component={StaffPage} />
-          <Route path="/secret" component={Secret} />
-          <Route render={() => <h2>404</h2>} />
 
-        </Switch>
-        
-          <Footer />
-        
+        <main>
+          <Switch className="switch">
+            <Route path="/" exact component={Home} />
+            <Route path="/profile/:id" component={ProfileId} />
+            <Route path="/my-profile" exact component={Myprofile} />
+            <Route path="/employee" exact component={Employee} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <Route path="/StaffPage" component={StaffPage} />
+            <Route path="/secret" component={Secret} />
+            <Route render={() => <h2>404</h2>} />
+          </Switch>
+        </main>
+
+        <Footer />
+
       </div>
     );
   }
