@@ -64,7 +64,7 @@ export default class Employee extends Component {
     
     if (!bookingOfTheHour._customer) return "Available"
     return <Button tag={Link} to={"/profile/"+bookingOfTheHour._customer._id} formerOnClick={() => this.cancel(schedule._id, hour)}>
-      {bookingOfTheHour._customer.name}
+      <div style={{color:"blue"}}> {bookingOfTheHour._customer.name} </div>
     </Button>
     // return bookingOfTheHour._customer.name
   }
@@ -112,7 +112,7 @@ export default class Employee extends Component {
         <Button onClick={this.increaseDate} className="shedule-btn-Employee">After</Button>
 
         {!this.state.schedules && <div>Loading...</div>}
-        {this.state.schedules && <table className="shedules-list">
+        {this.state.schedules && <table className="shedules-list-Employee">
           <thead>
             <tr>
               <th></th>
