@@ -127,9 +127,9 @@ export default {
       .catch(errHandler)
   },
   
-  editProfile(id) {
+  editProfile(data) {
     return service
-    .put (`/my-profile/${id}`)
+    .put(`/my-profile/`, data)
     .then (res => res.data)
     .catch(errHandler)
   },

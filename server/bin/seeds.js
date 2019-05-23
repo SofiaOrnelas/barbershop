@@ -22,6 +22,7 @@ let users = [
     phone: 999999999, 
     role: 'Employee', 
   }
+
 ]
 
 User.deleteMany()

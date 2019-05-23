@@ -196,8 +196,11 @@ router.get('/profile/:profileId', isEmployee, (req, res, next) => {
 })
 
 
-router.put('/my-profile/:userId', isLoggedIn, (req, res, next) => {
-  User.findByIdAndUpdate(req.params.userId, {
+router.put('/my-profile/', isLoggedIn, (req, res, next) => {
+  console.log(req.body.name)
+  console.log(req.body.phone)
+  console.log(req.body.email)
+  User.findByIdAndUpdate(req.user._id, {
     name: req.body.name,
     phone: req.body.phone,
     email: req.body.email,
