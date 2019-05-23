@@ -34,23 +34,9 @@ export default class Login extends Component {
     <div className="ContainerLogin">
       <div className="Login">
       <h2>Login</h2>
-        {/* <h2>Login</h2>
-        <form>
-          Email: <input type="text" value={this.state.email} name="email" onChange={this.handleInputChange} /> <br />
-          Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} /> <br />
-          <button onClick={(e) => this.handleClick(e)}>Login</button>
-        </form>
-        {this.state.message && <div className="info info-danger">
-          {this.state.message}
-        </div>}
-      </div> */}
-
          <Form>
         <FormGroup>
           
-          {/* <Input type="email" name="email" id="exampleEmail" placeholder="Email" /> */}
-          {/* type="text" value={this.state.email} name="email" onChange={this.handleInputChange} */}
-
           <Input type="text" value={this.state.email} name="email" onChange={this.handleInputChange} id="exampleEmail" placeholder="Email" /><br />
         </FormGroup>
         {' '}
@@ -72,3 +58,17 @@ export default class Login extends Component {
         }
       }
 
+
+      /* <h2>Login</h2>
+      {/* <Input type="email" name="email" id="exampleEmail" placeholder="Email" /> */
+          /* type="text" value={this.state.email} name="email" onChange={this.handleInputChange} 
+
+        <form>
+          Email: <input type="text" value={this.state.email} name="email" onChange={this.handleInputChange} /> <br />
+          Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} /> <br />
+          <button onClick={(e) => this.handleClick(e)}>Login</button>
+        </form>
+        {this.state.message && <div className="info info-danger">
+          {this.state.message}
+        </div>}
+      </div> */

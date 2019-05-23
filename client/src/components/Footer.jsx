@@ -19,7 +19,6 @@ export default class Footer extends Component {
         <div className="logoHome">
           <p className="topBtn">Home</p>
         </div></NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
           <Nav className="ml-auto" navbar>
           </Nav>
   
