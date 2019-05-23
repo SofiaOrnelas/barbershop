@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import api from '../../api';
 import { convertHourNumberToString, getReadableDate } from "../../utils";
-import { Button } from "reactstrap";
 import { Link } from "react-router-dom"
+import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 let lol = 0;
 
@@ -11,6 +11,7 @@ export default class Myprofile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      lol: 0,
       message: null, 
       schedules: null,
       bookings: [],
@@ -42,6 +43,13 @@ export default class Myprofile extends Component {
       )
     }
 
+  }
+
+  getPreviousReserve(booking){
+    if (booking.date < new Date().toISOString()) {
+      console.log("TCL: Myprofile -> getPreviousReserve -> booking.date", booking.date)
+      lol++
+    }
   }
 
   handleChange(event) {
@@ -80,26 +88,43 @@ export default class Myprofile extends Component {
 
   render() {
     return (
-      <div>
+      <div className="backMyprofile">
         {this.state.user && this.state.isEditing ?
         <>
-          <label>Name: <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label> <br />
-          <label>Phone: <input type="text" name="phone" value={this.state.phone} onChange={this.handleChange}/></label><br />
-          <label>Email: <input type="text" name="email" value={this.state.email} onChange={this.handleChange}/></label><br /><br />
-          <Button onClick={this.handleButtonClick}>Save Changes</Button> <br/><br/>
+        <br></br>
+          <label className="MyProfileLabel">Name: <input className="MyProfileInput" type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label> <br />
+          <label className="MyProfileLabel">Phone: <input className="MyProfileInput" type="text" name="phone" value={this.state.phone} onChange={this.handleChange}/></label><br />
+          <label className="MyProfileLabel">Email: <input className="MyProfileInput" type="text" name="email" value={this.state.email} onChange={this.handleChange}/></label><br /><br />
+          <Button className="btnLogin-Submit" onClick={this.handleButtonClick}>Save Changes</Button> <br/><br/>
           {this.state.message}
           <hr />
         </>
         :
         <>
-            Name: <text>{this.state.name}</text> <br />
-            Phone: <text>{this.state.phone}</text><br />
-            Email: <text>{this.state.email}</text><br /><br />
-          <Button onClick={this.handleButtonClick}>Edit Profile</Button>
+          <div className="MyP-Sect1">
+            <p>Name: <text>{this.state.name}</text> </p><br />
+            <p>Phone: <text>{this.state.phone}</text></p><br />
+            <p>Email: <text>{this.state.email}</text></p><br /><br />
+          <Button className="btnLogin-Submit" onClick={this.handleButtonClick}>Edit Profile</Button>
+          </div>
           <hr />
         </>
         }
+        <div className="MyP-Sect2">
+        <h2>Future bookings</h2>
+        {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
+          {this.getFutureReserve(booking)}
+        </div>)}
+        </div>
+        <hr />
 
+        <div className="MyP-Sect2">
+        <h2>Previous bookings</h2>
+        {this.state.bookings && this.state.bookings.map((booking, i) => <div  key={i}>
+        {this.getPreviousReserve(booking)}
+        </div>)}
+        </div>
+        
   {/*       <h2>Future bookings</h2>
         {this.getFutureReserve()}
         <hr />
