@@ -95,7 +95,7 @@ export default class Myprofile extends Component {
           <label className="MyProfileLabel">Name: <input className="MyProfileInput" type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label> <br />
           <label className="MyProfileLabel">Phone: <input className="MyProfileInput" type="text" name="phone" value={this.state.phone} onChange={this.handleChange}/></label><br />
           <label className="MyProfileLabel">Email: <input className="MyProfileInput" type="text" name="email" value={this.state.email} onChange={this.handleChange}/></label><br /><br />
-          <Button className="btnLogin-Submit" onClick={this.handleButtonClick}>Save Changes</Button> <br/><br/>
+          <Button className="btnLogin-Submit" onClick={this.handleButtonClick}>Save Changes</Button> <br/>
           {this.state.message}
           <hr />
         </>
@@ -118,9 +118,9 @@ export default class Myprofile extends Component {
         </div>
         <hr />
 
-        <div className="MyP-Sect2">
+        <div className="MyP-Sect3">
         <h2>Previous bookings</h2>
-        {this.state.bookings && this.state.bookings.map((booking, i) => <div  key={i}>
+        {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
         {this.getPreviousReserve(booking)}
         </div>)}
         </div>
