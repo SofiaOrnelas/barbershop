@@ -56,7 +56,7 @@ export default class Calendar extends Component {
 
 
     if (api.isLoggedIn() && bookingOfTheHour._customer._id === api.getLocalStorageUser()._id) return bookingOfTheHour._customer.name
-    return <div style={{color:"red"}}>Unvailable</div>
+    return <div style={{color:"red"}}>Unavailable</div>
   }
 
   increaseDate() {
