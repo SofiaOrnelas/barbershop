@@ -373,8 +373,8 @@ h5 {
 }
 
 .testForm{
-  display: flex;
-  flex-direction: row;
+  // display: flex;
+  // flex-direction: row;
   margin: 5px auto !important;
 }
 
@@ -400,8 +400,8 @@ h5 {
   padding: 3px;
 }
 .backMyprofile{
-  // display: flex;
-  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
   background-image: url("/backCalend.jpg");
   min-height: 600px;
   width: 100%;

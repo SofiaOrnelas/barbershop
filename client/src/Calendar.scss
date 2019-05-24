@@ -10,6 +10,8 @@
   width: 100%;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .Calendar{
@@ -36,14 +38,14 @@
     padding: 20px;
 }
 
-.center-calend{
-  display: flex;
-  flex: content;
-  margin:10px auto;
-  width: 90;
-  height:600px;
-  background-color: red;
-}
+// .center-calend{
+//   display: flex;
+//   flex: content;
+//   margin:10px auto;
+//   width: 90;
+//   height:600px;
+//   background-color: red;
+// }
 
 .shedules-list{
   font-family: 'Merriweather', sans-serif;
@@ -72,6 +74,7 @@
   font-family:'Merriweather', sans-serif;
   color:rgba(0, 0, 0, 0.89);
   width: 50vh;
+  // max-width: 90vh;
   justify-content: center;
   align-items: center;
   margin: 50px auto;
