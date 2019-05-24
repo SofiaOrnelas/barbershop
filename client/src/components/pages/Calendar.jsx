@@ -56,7 +56,7 @@ export default class Calendar extends Component {
 
 
     if (api.isLoggedIn() && bookingOfTheHour._customer._id === api.getLocalStorageUser()._id) return bookingOfTheHour._customer.name
-    return <div style={{color:"red"}}>Unvailable</div>
+    return <div style={{color:"red"}}>Unavailable</div>
   }
 
   increaseDate() {
@@ -82,6 +82,7 @@ export default class Calendar extends Component {
         <Button onClick={this.increaseDate} className="shedule-btn">After</Button>
 
         {!this.state.schedules && <div>Loading...</div>}
+        <div className="table-container">
         {this.state.schedules && <table className="shedules-list">
           <thead>
             <tr>
@@ -100,6 +101,7 @@ export default class Calendar extends Component {
             </tr>)}
           </tbody>
         </table>}
+        </div>
       </div>
     </div>
     );

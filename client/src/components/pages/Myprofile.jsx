@@ -122,9 +122,9 @@ export default class Myprofile extends Component {
         </div>
         <hr />
 
-        <div className="MyP-Sect2">
+        <div className="MyP-Sect3">
         <h2>Previous bookings</h2>
-        {this.state.bookings && this.state.bookings.map((booking, i) => <div  key={i}>
+        {this.state.bookings && this.state.bookings.map((booking, i) => <div key={i}>
         {this.getPreviousReserve(booking)}
         </div>)}
         </div>
