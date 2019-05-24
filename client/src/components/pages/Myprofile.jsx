@@ -4,14 +4,14 @@ import { convertHourNumberToString, getReadableDate } from "../../utils";
 import { Link } from "react-router-dom"
 import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
-let lol = 0;
+let futureReserve = 0;
 
 //TODO - Finish MyProfile
 export default class Myprofile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lol: 0,
+      futureReserve: 0,
       message: null, 
       schedules: null,
       bookings: [],
@@ -48,7 +48,7 @@ export default class Myprofile extends Component {
   getPreviousReserve(booking){
     if (booking.date < new Date().toISOString()) {
       console.log("TCL: Myprofile -> getPreviousReserve -> booking.date", booking.date)
-      lol++
+      futureReserve++
     }
   }
 
@@ -60,7 +60,17 @@ export default class Myprofile extends Component {
 
   handleButtonClick(event){
     if(this.state.isEditing){
-      if(this.state.name != "" && this.state.phone.toString().length === 9 && this.state.email != ""){
+      if(this.state.name == "" || this.state.phone.toString().length < 9 || this.state.email === ""){
+        this.setState({
+          message: 'All fields are required.'
+        })
+      }
+      else if (!this.state.email.includes("@") || this.state.email.length < 6) {
+        this.setState({
+          message: 'Enter a valid email'
+        })
+      }
+      else {
         event.preventDefault()
         api.editProfile({
           name: this.state.name,
@@ -71,12 +81,6 @@ export default class Myprofile extends Component {
           isEditing: false,
           message: null
         })
-
-      } else {
-        this.setState({
-          message: 'All fields are required.'
-        })
-
       }
     }else {
       this.setState({
@@ -94,7 +98,7 @@ export default class Myprofile extends Component {
         <br></br>
           <label className="MyProfileLabel">Name: <input className="MyProfileInput" type="text" name="name" value={this.state.name} onChange={this.handleChange}/></label> <br />
           <label className="MyProfileLabel">Phone: <input className="MyProfileInput" type="text" name="phone" value={this.state.phone} onChange={this.handleChange}/></label><br />
-          <label className="MyProfileLabel">Email: <input className="MyProfileInput" type="text" name="email" value={this.state.email} onChange={this.handleChange}/></label><br /><br />
+          <label className="MyProfileLabel">Email: <input className="MyProfileInput" type="email" name="email" value={this.state.email} onChange={this.handleChange}/></label><br /><br />
           <Button className="btnLogin-Submit" onClick={this.handleButtonClick}>Save Changes</Button> <br/><br/>
           {this.state.message}
           <hr />
