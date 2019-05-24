@@ -314,7 +314,7 @@ h5 {
   display: flex;
   background-image: url("/Back_LogIn.jpg");
   width: 100%;
-  min-height: 500px;
+  height: 80vh;
   background-size: cover;
   background-position: center;
 }
@@ -373,8 +373,8 @@ h5 {
 }
 
 .testForm{
-  // display: flex;
-  // flex-direction: row;
+ /*  display: flex;
+  flex-direction: row; */
   margin: 5px auto !important;
 }
 
